@@ -12,12 +12,14 @@
         :root {
             --bg-dark: #0f0f0f;
             --bg-card: #1a1a1a;
-            --primary: #b71c1c; /* أحمر دموي احترافي */
+            --primary: #b71c1c; 
             --primary-light: #f05545;
             --gold: #D4AF37;
             --text-white: #f5f5f5;
             --text-gray: #b0b0b0;
             --border-color: #333;
+            --success: #2ecc71; /* لون النجاح */
+            --error: #e74c3c;   /* لون الخطأ */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Tajawal', sans-serif; }
@@ -141,6 +143,34 @@
         }
         input[type="radio"]:checked + .option-label i { color: var(--primary); }
 
+        /* --- تنسيقات التصحيح (جديد) --- */
+        .correct-answer {
+            background-color: rgba(46, 204, 113, 0.2) !important;
+            border: 2px solid var(--success) !important;
+            color: var(--success) !important;
+        }
+        .correct-answer i { color: var(--success) !important; }
+
+        .wrong-answer {
+            background-color: rgba(231, 76, 60, 0.2) !important;
+            border: 2px solid var(--error) !important;
+            color: var(--error) !important;
+        }
+        .wrong-answer i { color: var(--error) !important; }
+
+        /* لتمييز الإجابة الصحيحة التي لم يختارها الطالب */
+        .missed-answer {
+            border: 2px dashed var(--success) !important;
+            color: var(--success) !important;
+            position: relative;
+        }
+        .missed-answer::after {
+            content: " (الإجابة الصحيحة)";
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
         /* --- شاشة النتائج والشهادة --- */
         #result-screen {
             display: none;
@@ -169,7 +199,7 @@
         .stat-value { font-size: 2.5rem; font-weight: 900; color: var(--primary); }
         .stat-label { color: var(--text-gray); font-size: 0.9rem; }
 
-        /* --- تصميم الشهادة الاحترافي (أسود وأحمر) --- */
+        /* --- تصميم الشهادة --- */
         #certificate-area {
             display: none;
             margin-top: 50px;
@@ -181,7 +211,7 @@
             width: 100%;
             max-width: 850px;
             margin: 0 auto;
-            background: #fff; /* الورق أبيض لتباين الطباعة */
+            background: #fff;
             color: #000;
             padding: 10px;
             box-shadow: 0 0 50px rgba(0,0,0,0.8);
@@ -203,14 +233,9 @@
             position: relative;
         }
 
-        /* زوايا الشهادة */
         .corner {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            border-style: solid;
-            border-color: var(--primary);
-            border-width: 0;
+            position: absolute; width: 40px; height: 40px;
+            border-style: solid; border-color: var(--primary); border-width: 0;
         }
         .tl { top: 10px; left: 10px; border-top-width: 5px; border-left-width: 5px; }
         .tr { top: 10px; right: 10px; border-top-width: 5px; border-right-width: 5px; }
@@ -218,76 +243,38 @@
         .br { bottom: 10px; right: 10px; border-bottom-width: 5px; border-right-width: 5px; }
 
         .cert-header-text {
-            font-family: 'Amiri', serif;
-            font-size: 3.5rem;
-            color: #000;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-family: 'Amiri', serif; font-size: 3.5rem; color: #000;
+            margin-bottom: 5px; text-transform: uppercase; letter-spacing: 2px;
         }
         
         .cert-subtitle {
-            font-family: 'Tajawal', sans-serif;
-            color: var(--primary);
-            font-size: 1.2rem;
-            font-weight: bold;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 40px;
-            border-bottom: 1px solid #ccc;
-            display: inline-block;
-            padding-bottom: 5px;
+            font-family: 'Tajawal', sans-serif; color: var(--primary); font-size: 1.2rem;
+            font-weight: bold; letter-spacing: 3px; text-transform: uppercase;
+            margin-bottom: 40px; border-bottom: 1px solid #ccc; display: inline-block; padding-bottom: 5px;
         }
 
-        .cert-body {
-            font-family: 'Amiri', serif;
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            color: #444;
-        }
+        .cert-body { font-family: 'Amiri', serif; font-size: 1.4rem; margin-bottom: 10px; color: #444; }
 
         .cert-name {
-            font-family: 'Reem Kufi', sans-serif;
-            font-size: 2.8rem;
-            color: #000;
-            font-weight: 700;
-            margin: 20px 0;
-            padding: 10px;
+            font-family: 'Reem Kufi', sans-serif; font-size: 2.8rem; color: #000;
+            font-weight: 700; margin: 20px 0; padding: 10px;
         }
 
         .cert-quote {
-            font-family: 'Amiri', serif;
-            font-size: 1.8rem;
-            color: var(--primary);
-            font-weight: bold;
-            margin: 30px 0;
-            font-style: italic;
+            font-family: 'Amiri', serif; font-size: 1.8rem; color: var(--primary);
+            font-weight: bold; margin: 30px 0; font-style: italic;
         }
 
         .cert-footer-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
+            display: flex; justify-content: space-between; align-items: flex-end;
+            margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee;
         }
 
         .seal {
-            width: 130px;
-            height: 130px;
-            border: 3px double var(--primary);
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-weight: bold;
-            font-size: 0.9rem;
-            font-family: 'Tajawal', sans-serif;
-            margin: 0 auto;
-            transform: rotate(-5deg);
+            width: 130px; height: 130px; border: 3px double var(--primary); border-radius: 50%;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            color: var(--primary); font-weight: bold; font-size: 0.9rem;
+            font-family: 'Tajawal', sans-serif; margin: 0 auto; transform: rotate(-5deg);
         }
         .seal i { font-size: 2rem; margin-bottom: 5px; }
 
@@ -300,6 +287,13 @@
             padding: 12px; font-size: 1.1rem; border-radius: 5px; border: 1px solid #444; width: 250px;
             text-align: center; background: #000; color: #fff;
         }
+
+        /* أزرار التنقل */
+        .nav-btn {
+            background: #333; color: #fff; border: 1px solid #555;
+            padding: 10px 25px; border-radius: 5px; cursor: pointer; margin: 10px;
+        }
+        .nav-btn:hover { background: #444; }
 
         @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
         @keyframes slideUp { from {opacity:0; transform: translateY(50px);} to {opacity:1; transform: translateY(0);} }
@@ -331,7 +325,9 @@
         <div id="questions-container">
             </div>
         
-        <button class="btn" style="width:100%; margin-top:20px;" onclick="submitQuiz()">اعتماد الإجابات وإنهاء الاختبار</button>
+        <button id="submit-btn" class="btn" style="width:100%; margin-top:20px;" onclick="submitQuiz()">اعتماد الإجابات وإنهاء الاختبار</button>
+        
+        <button id="back-to-results-btn" class="btn" style="width:100%; margin-top:20px; display:none; background:#333;" onclick="showResultsScreen()">العودة إلى الشهادة والنتيجة</button>
     </div>
 
     <div id="result-screen">
@@ -352,8 +348,12 @@
             </div>
         </div>
 
-        <div style="max-width: 400px; margin: 0 auto 40px auto;">
+        <div style="max-width: 400px; margin: 0 auto 20px auto;">
             <canvas id="resultChart"></canvas>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 30px;">
+            <button class="nav-btn" onclick="reviewAnswers()">مراجعة الإجابات وتصحيح الأخطاء <i class="fas fa-search"></i></button>
         </div>
 
         <div class="input-group">
@@ -406,8 +406,7 @@
     </div>
 
     <script>
-        // --- بنك الأسئلة (40 سؤالاً: خليط من اختياري وصواب/خطأ) ---
-        // type: 'tf' (True/False) or 'mc' (Multiple Choice)
+        // --- بنك الأسئلة (40 سؤالاً) ---
         const questionsDB = [
             // الوحدة 8
             { type: 'tf', t: "تهدف الإدارة في الإسلام إلى حفظ الكليات الخمس ومنها الدين والنفس.", a: "صح" },
@@ -439,16 +438,16 @@
 
             // الوحدة 12
             { type: 'mc', t: "استغلال الوظيفة لمصالح شخصية يسمى:", opts: ["النجاح الإداري", "الفساد الإداري", "التطوير الإداري", "الذكاء الإداري"], a: "الفساد الإداري" },
-            { type: 'tf', t: "الرشوة هي ما يعطى لإحقاق حق أو إبطال باطل.", a: "خطأ" }, // التعريف الصحيح: لإحقاق باطل أو إبطال حق
+            { type: 'tf', t: "الرشوة هي ما يعطى لإحقاق حق أو إبطال باطل.", a: "خطأ" }, // لإحقاق باطل أو إبطال حق
             { type: 'mc', t: "أخذ المال خفية من حرز مثله يسمى:", opts: ["السرقة", "الاختلاس", "الرشوة", "الغلول"], a: "السرقة" },
-            { type: 'tf', t: "هدايا الموظفين بسبب مناصبهم تعتبر (غلول) وهي جائزة.", a: "خطأ" }, // محرمة
+            { type: 'tf', t: "هدايا الموظفين بسبب مناصبهم تعتبر (غلول) وهي جائزة.", a: "خطأ" },
             { type: 'mc', t: "مساعدة صاحب الحق للوصول لحقه تسمى شفاعة:", opts: ["سيئة", "حسنة", "محرمة", "مكروهة"], a: "حسنة" },
             { type: 'tf', t: "حديث 'من غش فليس مني' يقتصر فقط على الغش في البيع.", a: "خطأ" },
             { type: 'mc', t: "إفشاء أسرار العمل يعتبر خيانة لـ:", opts: ["الأمانة", "الصداقة", "الزمالة", "الوطن"], a: "الأمانة" },
             { type: 'tf', t: "التزوير يعتبر من أنواع الانحرافات الجنائية.", a: "صح" },
             { type: 'mc', t: "الشفاعة التي تأكل حقوق الآخرين هي شفاعة:", opts: ["حسنة", "سيئة", "واجبة", "مستحبة"], a: "سيئة" },
             
-            // أسئلة إضافية لإكمال 40
+            // أسئلة إضافية
             { type: 'tf', t: "التوجيه الإداري يعتمد على القسوة لضبط العمل.", a: "خطأ" },
             { type: 'mc', t: "من آداب المحتسب:", opts: ["الشدة", "الغلظة", "الرفق والصبر", "التجسس"], a: "الرفق والصبر" },
             { type: 'tf', t: "التقييم المستمر للموظف يساعد في تدارك الأخطاء.", a: "صح" },
@@ -478,8 +477,9 @@
             }, 1000);
 
             const container = document.getElementById('questions-container');
+            container.innerHTML = ''; // تفريغ الحاوية قبل البدء
             questionsDB.forEach((q, i) => {
-                let html = `<div class="question-card">
+                let html = `<div class="question-card" id="card-${i}">
                                 <div class="q-badge">سؤال ${i + 1}</div>
                                 <span class="q-text">${q.t}</span>
                                 <div class="options-grid">`;
@@ -516,17 +516,44 @@
             let correct = 0;
             let wrong = 0;
 
+            // عملية التصحيح المباشر في DOM
             questionsDB.forEach((q, i) => {
+                // تجميد جميع المدخلات لمنع التغيير
+                const inputs = document.getElementsByName(`q${i}`);
+                inputs.forEach(input => input.disabled = true);
+
                 const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                
+                // تحديد عنصر الإجابة الصحيحة لتلوينه
+                let correctInputId;
+                if(q.type === 'tf') {
+                    correctInputId = q.a === 'صح' ? `q${i}_t` : `q${i}_f`;
+                } else {
+                    // في الاختيار المتعدد نبحث عن القيمة
+                    const correctIndex = q.opts.indexOf(q.a);
+                    correctInputId = `q${i}_${correctIndex}`;
+                }
+                const correctLabel = document.querySelector(`label[for="${correctInputId}"]`);
+
                 if (selected) {
+                    const selectedLabel = document.querySelector(`label[for="${selected.id}"]`);
+                    
                     if (selected.value === q.a) {
+                        // إجابة صحيحة
                         rawScore++;
                         correct++;
+                        selectedLabel.classList.add('correct-answer');
                     } else {
+                        // إجابة خاطئة
                         wrong++;
+                        selectedLabel.classList.add('wrong-answer');
+                        // تلوين الإجابة الصحيحة ليعرفها الطالب
+                        if(correctLabel) correctLabel.classList.add('missed-answer');
                     }
                 } else {
+                    // لم يتم الاختيار
                     wrong++;
+                    if(correctLabel) correctLabel.classList.add('missed-answer');
                 }
             });
 
@@ -539,6 +566,7 @@
             else if(finalScore50 >= 35) { status = "جيد جداً"; color = "#ffa726"; }
             else if(finalScore50 >= 25) { status = "جيد"; color = "#ffee58"; }
 
+            // إخفاء الاختبار وإظهار النتائج
             document.getElementById('quiz-screen').style.display = 'none';
             document.getElementById('result-screen').style.display = 'block';
             
@@ -548,13 +576,17 @@
             document.getElementById('time-display').innerText = document.getElementById('timer').innerText;
 
             const ctx = document.getElementById('resultChart').getContext('2d');
-            new Chart(ctx, {
+            
+            // تدمير الرسم البياني القديم إذا وجد لتجنب التداخل
+            if(window.myChart) window.myChart.destroy();
+
+            window.myChart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
                     labels: ['إجابات صحيحة', 'إجابات خاطئة'],
                     datasets: [{
                         data: [correct, wrong],
-                        backgroundColor: ['#b71c1c', '#333'],
+                        backgroundColor: ['#2ecc71', '#e74c3c'],
                         borderWidth: 0
                     }]
                 },
@@ -565,6 +597,25 @@
                     }
                 }
             });
+            window.scrollTo(0,0);
+        }
+
+        // دالة عرض شاشة الاختبار مرة أخرى للمراجعة (مع الإجابات الملونة)
+        function reviewAnswers() {
+            document.getElementById('result-screen').style.display = 'none';
+            document.getElementById('quiz-screen').style.display = 'block';
+            
+            // إخفاء زر الاعتماد وإظهار زر العودة
+            document.getElementById('submit-btn').style.display = 'none';
+            document.getElementById('back-to-results-btn').style.display = 'block';
+            
+            window.scrollTo(0,0);
+        }
+
+        // دالة العودة للنتيجة بعد المراجعة
+        function showResultsScreen() {
+            document.getElementById('quiz-screen').style.display = 'none';
+            document.getElementById('result-screen').style.display = 'block';
             window.scrollTo(0,0);
         }
 
