@@ -67,7 +67,6 @@
             position: relative;
         }
         
-        /* إخفاء الزر الأصلي */
         .option-container input[type="radio"] {
             position: absolute;
             opacity: 0;
@@ -76,7 +75,6 @@
             width: 0;
         }
 
-        /* تصميم الصندوق */
         .option-label {
             display: flex;
             align-items: center;
@@ -95,7 +93,6 @@
             border-color: #666;
         }
 
-        /* شكل الدائرة */
         .option-icon {
             width: 24px;
             height: 24px;
@@ -117,7 +114,6 @@
             display: none;
         }
 
-        /* عند الاختيار */
         .option-container input[type="radio"]:checked + .option-label {
             background: linear-gradient(90deg, rgba(212, 175, 55, 0.15), transparent);
             border-color: var(--gold);
@@ -237,7 +233,7 @@
         <h1 class="hero-title">اختبار الكفاءة المهنية المتقدم</h1>
         <span class="quran-quote">﴿إِنَّ خَيْرَ مَنِ اسْتَأْجَرْتَ الْقَوِيُّ الْأَمِينُ﴾</span>
         <p class="hero-subtitle">
-            اختبار دقيق مبني على الكتاب المقرر (ص 92-162) يركز على الأدلة والعلماء.<br>
+            اختبار عشوائي وشامل (40 سؤالاً) من الكتاب المقرر (ص 92-162).<br>
             <span style="color:var(--primary); font-weight:bold; background:rgba(255,255,255,0.1); padding:5px 10px; border-radius:4px;">شرط الاجتياز: 25 درجة من 50</span>
         </p>
         <button class="btn" onclick="startQuiz()">ابدأ التحدي <i class="fas fa-arrow-left"></i></button>
@@ -270,7 +266,7 @@
             <i class="fas fa-times-circle fa-3x" style="margin-bottom:15px;"></i><br>
             <span style="font-size:1.4rem; font-weight:bold;">عذراً، لم تجتز الاختبار</span><br><br>
             لقد حصلت على أقل من 25 درجة.<br>
-            الشهادة تتطلب مستوى عالٍ من الإتقان والمعرفة بالأدلة الشرعية.<br>
+            حاول التركيز أكثر في المرة القادمة.<br>
             <br>
             <button class="btn" onclick="location.reload()" style="font-size:1rem; padding:10px 30px;">إعادة المحاولة</button>
         </div>
@@ -308,9 +304,9 @@
                             <div class="student-name" id="cert-name">Student Name</div>
                             
                             <div class="cert-desc">
-                                Has successfully completed the advanced examination in <strong>Professional Ethics</strong> based on the approved curriculum, demonstrating mastery of Islamic management principles.
+                                Has successfully completed the comprehensive examination in <strong>Professional Ethics</strong> based on the approved curriculum (Units 8-12), demonstrating mastery of Islamic management principles.
                                 <br>
-                                قد أتم بنجاح الاختبار المتقدم في <strong>أخلاقيات المهنة</strong> وأظهر إتقاناً للمفاهيم الإدارية الشرعية.
+                                قد أتم بنجاح الاختبار الشامل في <strong>أخلاقيات المهنة</strong> (الوحدات 8-12) وأظهر إتقاناً للمفاهيم الإدارية الشرعية.
                             </div>
 
                             <div class="cert-grade-box">
@@ -352,6 +348,14 @@
     </div>
 
     <script>
+        // دالة لخلط المصفوفة (Random Shuffle)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
         // بنك الأسئلة (40 سؤالاً متنوعاً)
         const db = [
             // الوحدة 8 (الإدارة)
@@ -411,16 +415,19 @@
             document.getElementById('start-screen').style.display = 'none';
             document.getElementById('quiz-screen').style.display = 'block';
             let html = '';
+            
+            // خلط الخيارات في كل سؤال
+            db.forEach(q => shuffleArray(q.opts));
+
             db.forEach((q, i) => {
                 let evidenceHtml = q.evidence ? `<div class="evidence-text">${q.evidence}</div>` : '';
                 html += `<div class="question-card">
                     <div class="q-badge">سؤال ${i+1}</div>
                     <div class="q-text">${q.t}</div>
                     ${evidenceHtml}
-                    <div>`; // الحاوية
+                    <div>`;
                 
                 q.opts.forEach((opt, idx) => {
-                    // تم إصلاح الهيكل ليعمل التصميم الجديد (تحديد واحد فقط)
                     html += `
                     <div class="option-container">
                         <input type="radio" id="q${i}_opt${idx}" name="q${i}" value="${opt}">
