@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اختبار الكفاءة الشرعية | Professional Certification</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;700&family=Great+Vibes&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    <title>الاختبار الشامل | أخلاقيات المهنة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -14,7 +14,6 @@
             --bg-card: #121212;
             --primary: #800000; /* أحمر ماروني فخم */
             --gold: #D4AF37;    /* ذهبي حقيقي */
-            --gold-dark: #AA8C2C;
             --text-white: #e0e0e0;
             --success: #27ae60;
             --error: #c62828;
@@ -93,7 +92,7 @@
         }
         .input-group input:focus { outline: none; border-color: var(--gold); }
 
-        /* --- تصميم الشهادة الاحترافي جداً --- */
+        /* --- تصميم الشهادة الاحترافي --- */
         #certificate-display { display: none; margin-top: 50px; text-align: center; }
         
         .cert-paper { 
@@ -103,20 +102,17 @@
             overflow: hidden;
         }
 
-        /* الخلفية الزخرفية */
         .cert-bg-pattern {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background-image: url('https://www.transparenttextures.com/patterns/gplay.png');
             opacity: 0.4; z-index: 0;
         }
         
-        /* الإطار الخارجي الذهبي */
         .cert-frame-outer {
             border: 10px solid #1a1a1a;
             height: 100%; padding: 5px; position: relative; z-index: 1;
         }
         
-        /* الإطار الداخلي المزخرف */
         .cert-frame-inner {
             border: 3px solid var(--gold);
             height: 100%; padding: 40px;
@@ -124,7 +120,6 @@
             background: radial-gradient(circle, #fff 40%, #f9f9f9 100%);
         }
 
-        /* زوايا الإطار */
         .c-corner {
             position: absolute; width: 50px; height: 50px;
             border-style: double; border-color: var(--gold); border-width: 0;
@@ -134,21 +129,16 @@
         .c-bl { bottom: 10px; left: 10px; border-bottom-width: 6px; border-left-width: 6px; }
         .c-br { bottom: 10px; right: 10px; border-bottom-width: 6px; border-right-width: 6px; }
 
-        /* محتوى الشهادة */
         .cert-header { margin-bottom: 20px; border-bottom: 2px solid var(--gold); padding-bottom: 10px; display: inline-block; width: 80%; }
         .cert-title-en { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #1a1a1a; letter-spacing: 5px; font-weight: 700; margin: 0; }
         .cert-title-ar { font-family: 'Amiri', serif; font-size: 2.2rem; color: var(--primary); margin-top: -10px; }
 
         .cert-body { margin: 30px 0; }
         .cert-text-sm { font-family: 'Cinzel', serif; font-size: 1rem; color: #555; text-transform: uppercase; letter-spacing: 2px; }
-        .cert-text-ar { font-family: 'Tajawal', sans-serif; font-size: 1.1rem; color: #666; margin-top: 5px; }
-
         .student-name { 
-            font-family: 'Amiri', serif; /* خط عربي للأسماء العربية */
-            font-size: 3.5rem; color: #000; margin: 15px 0; 
+            font-family: 'Amiri', serif; font-size: 3.5rem; color: #000; margin: 15px 0; 
             font-weight: bold; text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
         }
-        
         .cert-desc { font-family: 'Amiri', serif; font-size: 1.4rem; color: #333; line-height: 1.6; max-width: 80%; margin: 0 auto; }
         
         .cert-grade-box {
@@ -156,15 +146,9 @@
             background: linear-gradient(to right, #fff, #fcfcfc);
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-        .grade-label { font-family: 'Cinzel', serif; font-size: 0.9rem; color: #777; }
         .grade-value { font-family: 'Cinzel', serif; font-size: 2rem; color: var(--primary); font-weight: bold; }
 
-        /* التذييل والأختام */
-        .cert-footer { 
-            display: flex; justify-content: space-between; align-items: flex-end; 
-            margin-top: 60px; padding: 0 50px;
-        }
-
+        .cert-footer { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 60px; padding: 0 50px; }
         .seal-container { position: relative; width: 140px; height: 140px; margin: 0 auto; }
         .gold-seal-img { width: 100%; height: 100%; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3)); }
         
@@ -172,7 +156,6 @@
         .sig-img { height: 60px; margin-bottom: -10px; transform: rotate(-5deg); }
         .sig-line { border-bottom: 2px solid #1a1a1a; margin-bottom: 5px; }
         .sig-title { font-family: 'Cinzel', serif; font-size: 0.8rem; font-weight: bold; color: var(--primary); }
-        .sig-date { font-family: 'Cinzel', serif; font-size: 0.9rem; margin-bottom: 5px; color: #333; }
 
         @keyframes slideUp { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);} }
         @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
@@ -181,14 +164,14 @@
 <body>
 
     <div id="start-screen">
-        <i class="fas fa-balance-scale hero-icon" style="font-size: 4rem; color:var(--gold); margin-bottom:20px;"></i>
-        <h1 class="hero-title">اختبار الكفاءة المهنية المتقدم</h1>
-        <span class="quran-quote">﴿إِنَّ خَيْرَ مَنِ اسْتَأْجَرْتَ الْقَوِيُّ الْأَمِينُ﴾</span>
+        <i class="fas fa-book-open hero-icon" style="font-size: 4rem; color:var(--gold); margin-bottom:20px;"></i>
+        <h1 class="hero-title">الاختبار الشامل (أخلاقيات المهنة)</h1>
+        <span class="quran-quote">﴿وَقُلِ اعْمَلُوا فَسَيَرَى اللَّهُ عَمَلَكُمْ وَرَسُولُهُ وَالْمُؤْمِنُونَ﴾</span>
         <p class="hero-subtitle">
-            اختبار دقيق مبني على الكتاب المقرر (ص 92-162) يركز على الأدلة والعلماء.<br>
-            <span style="color:var(--primary); font-weight:bold; background:rgba(255,255,255,0.1); padding:5px 10px; border-radius:4px;">شرط الاجتياز: 25 درجة من 50</span>
+            اختبار من 40 سؤالاً متنوعاً (أدلة شرعية + مفاهيم إدارية).<br>
+            <span style="color:var(--primary); font-weight:bold; background:rgba(255,255,255,0.1); padding:5px 10px; border-radius:4px;">درجة النجاح المطلوبة: 25 من 50</span>
         </p>
-        <button class="btn" onclick="startQuiz()">ابدأ التحدي <i class="fas fa-arrow-left"></i></button>
+        <button class="btn" onclick="startQuiz()">ابدأ الاختبار الآن</button>
     </div>
 
     <div id="quiz-screen">
@@ -202,23 +185,23 @@
         <div class="stats-row">
             <div class="stat-card">
                 <div class="stat-value"><span id="score-val">0</span><span style="font-size:1.5rem; color:#666;">/50</span></div>
-                <div class="stat-label">FINAL SCORE</div>
+                <div class="stat-label">الدرجة النهائية</div>
             </div>
             <div class="stat-card">
                 <div class="stat-value" id="status-val" style="font-size:2rem;">-</div>
-                <div class="stat-label">STATUS</div>
+                <div class="stat-label">الحالة</div>
             </div>
         </div>
 
         <div style="max-width:350px; margin:0 auto;"><canvas id="chart"></canvas></div>
         
-        <button class="btn" style="background:#222; border:1px solid #444; margin:30px 0; font-size:1rem;" onclick="reviewAnswers()">مراجعة الإجابات التفصيلية</button>
+        <button class="btn" style="background:#222; border:1px solid #444; margin:30px 0; font-size:1rem;" onclick="reviewAnswers()">مراجعة الإجابات</button>
 
         <div id="fail-message-area">
             <i class="fas fa-times-circle fa-3x" style="margin-bottom:15px;"></i><br>
-            <span style="font-size:1.4rem; font-weight:bold;">عذراً، لم تجتز الاختبار</span><br><br>
+            <span style="font-size:1.4rem; font-weight:bold;">نعتذر، لم تجتز الاختبار</span><br><br>
             لقد حصلت على أقل من 25 درجة.<br>
-            الشهادة تتطلب مستوى عالٍ من الإتقان والمعرفة بالأدلة الشرعية.<br>
+            حاول مراجعة الكتاب وإعادة الاختبار لاحقاً.<br>
             <br>
             <button class="btn" onclick="location.reload()" style="font-size:1rem; padding:10px 30px;">إعادة المحاولة</button>
         </div>
@@ -227,12 +210,12 @@
             <div style="text-align:center; margin-bottom:20px;">
                 <i class="fas fa-certificate fa-3x" style="color:var(--gold);"></i>
             </div>
-            <h3 style="color:var(--gold); margin-bottom:10px;">تهانينا! أنت مؤهل للحصول على الشهادة</h3>
-            <p style="color:#ccc; margin-bottom:20px; font-size:0.95rem;">يرجى كتابة الاسم الثلاثي (باللغة العربية أو الإنجليزية) كما تريد أن يظهر في الوثيقة الرسمية.</p>
+            <h3 style="color:var(--gold); margin-bottom:10px;">أحسنت! أنت مؤهل للشهادة</h3>
+            <p style="color:#ccc; margin-bottom:20px; font-size:0.95rem;">اكتب الاسم الثلاثي ليظهر في الشهادة المعتمدة.</p>
             <div class="input-group">
-                <input type="text" id="studentName" placeholder="الاسم الكامل هنا..." autocomplete="off">
+                <input type="text" id="studentName" placeholder="الاسم الكامل..." autocomplete="off">
                 <br>
-                <button class="btn" onclick="generateCert()">إصدار الشهادة الآن</button>
+                <button class="btn" onclick="generateCert()">إصدار الشهادة</button>
             </div>
         </div>
 
@@ -246,23 +229,23 @@
 
                         <div class="cert-header">
                             <h1 class="cert-title-en">CERTIFICATE</h1>
-                            <h2 class="cert-title-ar">شهادة كفاءة مهنية</h2>
+                            <h2 class="cert-title-ar">شهادة كفاءة في أخلاقيات المهنة</h2>
                         </div>
 
                         <div class="cert-body">
-                            <div class="cert-text-sm">THIS IS TO CERTIFY THAT</div>
+                            <div class="cert-text-sm">THIS CERTIFIES THAT</div>
                             <div class="cert-text-ar">تشهد إدارة الاختبارات بأن</div>
                             
                             <div class="student-name" id="cert-name">Student Name</div>
                             
                             <div class="cert-desc">
-                                Has successfully completed the advanced examination in <strong>Professional Ethics</strong> based on the approved curriculum, demonstrating mastery of Islamic management principles.
+                                Has successfully passed the comprehensive examination based on the approved curriculum (Units 8-12), covering Islamic management principles, models, and regulations.
                                 <br>
-                                قد أتم بنجاح الاختبار المتقدم في <strong>أخلاقيات المهنة</strong> وأظهر إتقاناً للمفاهيم الإدارية الشرعية.
+                                قد اجتاز بنجاح الاختبار الشامل للكتاب المقرر (الوحدات 8-12) وأظهر إلماماً بالأدلة الشرعية والمفاهيم الإدارية.
                             </div>
 
                             <div class="cert-grade-box">
-                                <div class="grade-label">FINAL GRADE / الدرجة النهائية</div>
+                                <div class="grade-label">FINAL SCORE / الدرجة</div>
                                 <div class="grade-value"><span id="cert-score-final"></span> / 50</div>
                             </div>
                         </div>
@@ -280,14 +263,14 @@
                                     <circle cx="50" cy="50" r="38" fill="none" stroke="#7A5C1F" stroke-width="1" stroke-dasharray="2,2"/>
                                     <path d="M50 15 L55 35 L75 35 L60 50 L65 70 L50 55 L35 70 L40 50 L25 35 L45 35 Z" fill="#997B30" opacity="0.3"/>
                                     <text x="50" y="55" font-family="serif" font-size="12" font-weight="bold" fill="#3d2b05" text-anchor="middle">PASSED</text>
-                                    <text x="50" y="75" font-family="serif" font-size="6" fill="#3d2b05" text-anchor="middle">PROFESSIONAL</text>
+                                    <text x="50" y="75" font-family="serif" font-size="6" fill="#3d2b05" text-anchor="middle">ETHICS</text>
                                 </svg>
                             </div>
 
                             <div class="signature-block">
                                 <div class="sig-img" style="font-family:'Great Vibes'; font-size:2rem; color:#000;">Director.</div>
                                 <div class="sig-line"></div>
-                                <div class="sig-title">DIRECTOR SIGNATURE / التوقيع</div>
+                                <div class="sig-title">SIGNATURE / التوقيع</div>
                             </div>
                         </div>
 
@@ -300,116 +283,56 @@
     </div>
 
     <script>
-        // بنك الأسئلة (نفس الأسئلة القوية السابقة)
+        // بنك الأسئلة المتنوع (40 سؤالاً: أدلة + مفاهيم)
         const db = [
-            { 
-                t: "استدل المؤلف على وجوب (التخطيط والإعداد) في العمل الإداري بقوله تعالى:", 
-                evidence: "﴿وَأَعِدُّوا لَهُم مَّا اسْتَطَعْتُم مِّن قُوَّةٍ﴾",
-                opts: ["صحيح، هذه الآية هي الدليل الأساسي", "خطأ، الآية تدل على القوة البدنية فقط", "خطأ، التخطيط بدعة", "ليس مما سبق"], 
-                a: "صحيح، هذه الآية هي الدليل الأساسي" 
-            },
-            { 
-                t: "الآية الكريمة التي تعتبر (المعيار الأساسي للتوظيف) واختيار الموظفين هي:", 
-                opts: ["﴿إِنَّ خَيْرَ مَنِ اسْتَأْجَرْتَ الْقَوِيُّ الْأَمِينُ﴾", "﴿وَقُولُوا لِلنَّاسِ حُسْنًا﴾", "﴿وَأَمْرُهُمْ شُورَى بَيْنَهُمْ﴾", "﴿يَا أَيُّهَا الَّذِينَ آمَنُوا أَوْفُوا بِالْعُقُودِ﴾"], 
-                a: "﴿إِنَّ خَيْرَ مَنِ اسْتَأْجَرْتَ الْقَوِيُّ الْأَمِينُ﴾" 
-            },
-            { 
-                t: "ما هو الدليل الشرعي الذي يربط بين (المسؤولية الإدارية) وبين محاسبة المسؤول يوم القيامة؟", 
-                evidence: "قال ﷺ: (كُلُّكُمْ رَاعٍ وَكُلُّكُمْ مَسْؤولٌ عَنْ رَعِيَّتِهِ)",
-                opts: ["هذا الحديث خاص بالحاكم فقط", "هذا الحديث يشمل كل مدير ومسؤول وموظف", "هذا الحديث خاص بالأسرة", "لا علاقة له بالإدارة"], 
-                a: "هذا الحديث يشمل كل مدير ومسؤول وموظف" 
-            },
-            { 
-                t: "الفرق الدقيق بين (التوكل) و (التواكل) هو:", 
-                opts: ["التوكل هو ترك الأسباب، والتواكل هو العمل", "التوكل: عمل القلب والجوارح (الأخذ بالأسباب)، التواكل: عمل القلب دون الجوارح", "كلاهما واحد", "التواكل صفة محمودة"], 
-                a: "التوكل: عمل القلب والجوارح (الأخذ بالأسباب)، التواكل: عمل القلب دون الجوارح" 
-            },
-            { 
-                t: "استشهد (ابن جماعة) في آداب المعلم بحديث يدل على تحريم كتمان العلم، وهو:", 
-                opts: ["(من سُئل عن علم فكتمه ألجمه الله بلجام من نار)", "(طلب العلم فريضة)", "(العلماء ورثة الأنبياء)", "(بلّغوا عني ولو آية)"], 
-                a: "(من سُئل عن علم فكتمه ألجمه الله بلجام من نار)" 
-            },
-            { 
-                t: "الدليل القرآني الذي يؤصل لمشروعية (نظام الحسبة) في الإسلام هو:", 
-                evidence: "﴿وَلْتَكُن مِّنكُمْ أُمَّةٌ يَدْعُونَ إِلَى الْخَيْرِ وَيَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنكَرِ﴾",
-                opts: ["صحيح، هذه الآية أصل الحسبة", "خطأ، الحسبة بدعة", "الآية تتحدث عن الصلاة فقط", "ليس مما سبق"], 
-                a: "صحيح، هذه الآية أصل الحسبة" 
-            },
-            { 
-                t: "عندما تحدث (علي بن رضوان) عن أخلاق الطبيب، اشترط (عفة النظر). ما الدليل العام المناسب لذلك؟", 
-                opts: ["﴿قُل لِّلْمُؤْمِنِينَ يَغُضُّوا مِنْ أَبْصَارِهِمْ﴾", "﴿وَأَقِيمُوا الصَّلَاةَ﴾", "﴿وَكُلُوا وَاشْرَبُوا﴾", "جميع ما سبق"], 
-                a: "﴿قُل لِّلْمُؤْمِنِينَ يَغُضُّوا مِنْ أَبْصَارِهِمْ﴾" 
-            },
-            { 
-                t: "ينص الميثاق على أن التعليم رسالة، استناداً لقول النبي ﷺ:", 
-                opts: ["(إنما بعثت لأتمم مكارم الأخلاق)", "(لا ضرر ولا ضرار)", "(المسلم من سلم المسلمون من لسانه)", "(الدين النصيحة)"], 
-                a: "(إنما بعثت لأتمم مكارم الأخلاق)" 
-            },
-            { 
-                t: "المادة التي تؤكد على (الرقابة الذاتية) للمعلم تستند إلى مفهوم:", 
-                evidence: "﴿أَلَمْ يَعْلَمْ بِأَنَّ اللَّهَ يَرَى﴾",
-                opts: ["مقام الإحسان", "مقام الإسلام", "أركان الصلاة", "الواجبات الشكلية"], 
-                a: "مقام الإحسان" 
-            },
-            { 
-                t: "الحديث الذي يعتبر أصلاً في (حفظ حقوق الموظف/الأجير) والرضا الوظيفي هو:", 
-                opts: ["(أعطوا الأجير أجره قبل أن يجف عرقه)", "(لا يؤمن أحدكم حتى يحب لأخيه ما يحب لنفسه)", "(اليد العليا خير من اليد السفلى)", "ليس مما سبق"], 
-                a: "(أعطوا الأجير أجره قبل أن يجف عرقه)" 
-            },
-            { 
-                t: "أي دليل مما يلي يرسخ مفهوم (الإتقان) في العمل؟", 
-                opts: ["(إن الله يحب إذا عمل أحدكم عملاً أن يتقنه)", "(المؤمن القوي خير من المؤمن الضعيف)", "(إن الله كتب الإحسان على كل شيء)", "أ + ج"], 
-                a: "أ + ج" 
-            },
-            { 
-                t: "ما هو الحديث الذي يدل على أن (هدايا الموظفين) بسبب مناصبهم تعتبر مالاً حراماً؟", 
-                evidence: "قال ﷺ في حديث ابن اللتبية:",
-                opts: ["(هدايا العمال غلول)", "(تهادوا تحابوا)", "(الهدية لا تُرد)", "(من صنع إليكم معروفاً فكافئوه)"], 
-                a: "(هدايا العمال غلول)" 
-            },
-            { 
-                t: "الوعيد الشديد في (الرشوة) جاء في قوله ﷺ:", 
-                opts: ["(لعن الله الراشي والمرتشي)", "(آكل الربا وموكله)", "(لا يحل مال امرئ مسلم إلا بطيب نفس)", "(من غشنا فليس منا)"], 
-                a: "(لعن الله الراشي والمرتشي)" 
-            },
-            { 
-                t: "الدليل العام الذي يحرم جميع صور (الغش) في الوظيفة والامتحانات والبيع هو:", 
-                opts: ["(من غش فليس منا)", "(المكر والخديعة في النار)", "(لا تظالموا)", "جميع ما سبق"], 
-                a: "جميع ما سبق" 
-            },
-            { 
-                t: "الشفاعة السيئة (الواسطة المحرمة) هي التي تأكل حقوق الآخرين. الدليل على تحريمها:", 
-                evidence: "﴿مَن يَشْفَعْ شَفَاعَةً سَيِّئَةً يَكُن لَّهُ كِفْلٌ مِّنْهَا﴾",
-                opts: ["صحيح", "خطأ، الشفاعة كلها جائزة", "الآية منسوخة", "ليس مما سبق"], 
-                a: "صحيح" 
-            },
-            { 
-                t: "في قوله تعالى (إِنَّا عَرَضْنَا الْأَمَانَةَ عَلَى السَّمَاوَاتِ وَالْأَرْضِ...)، الأمانة تشمل:", 
-                opts: ["الفرائض الشرعية", "الوظائف والأعمال", "الودائع وحقوق الناس", "جميع ما سبق"], 
-                a: "جميع ما سبق" 
-            },
-            { 
-                t: "عندما نهى النبي ﷺ عن (الغش)، هل خصه بالمسلمين فقط؟", 
-                evidence: "لفظ الحديث: (من غش فليس منا) وفي رواية (من غشنا)",
-                opts: ["نعم، يجوز غش غير المسلم", "لا، التحريم عام لكل البشر لأن الإسلام دين أمانة", "الحديث ضعيف", "يجوز عند الضرورة"], 
-                a: "لا، التحريم عام لكل البشر لأن الإسلام دين أمانة" 
-            },
-            { 
-                t: "ما هو الدليل على ضرورة (التثبت) في القرارات الإدارية؟", 
-                opts: ["﴿يَا أَيُّهَا الَّذِينَ آمَنُوا إِن جَاءَكُمْ فَاسِقٌ بِنَبَإٍ فَتَبَيَّنُوا﴾", "﴿وَأَقِيمُوا الْوَزْنَ بِالْقِسْطِ﴾", "﴿وَلا تَنسَوُا الْفَضْلَ بَيْنَكُمْ﴾", "ليس مما سبق"], 
-                a: "﴿يَا أَيُّهَا الَّذِينَ آمَنُوا إِن جَاءَكُمْ فَاسِقٌ بِنَبَإٍ فَتَبَيَّنُوا﴾" 
-            },
-            { 
-                t: "أي حديث مما يلي يؤسس لقاعدة (الرجل المناسب في المكان المناسب)؟", 
-                evidence: "قول النبي ﷺ لأبي ذر:",
-                opts: ["(يا أبا ذر، إنك ضعيف، وإنها أمانة)", "(يا أبا ذر، تولّ الإمارة)", "(المؤمن للمؤمن كالبنيان)", "(كل ميسر لما خلق له)"], 
-                a: "(يا أبا ذر، إنك ضعيف، وإنها أمانة)" 
-            },
-            { 
-                t: "استدل الكتاب على أهمية (الشورى) في الإدارة بقوله تعالى:", 
-                opts: ["﴿وَشَاوِرْهُمْ فِي الْأَمْرِ﴾", "﴿فَإِذَا عَزَمْتَ فَتَوَكَّلْ﴾", "﴿وَأَمْرُهُمْ شُورَى بَيْنَهُمْ﴾", "جميع ما سبق"], 
-                a: "جميع ما سبق" 
-            }
+            // --- الوحدة 8: الإدارة ---
+            { t: "في التخطيط الإداري، ما الفرق الدقيق بين (التوكل) و (التواكل)؟", opts: ["التوكل عمل بالأسباب مع اعتماد القلب، والتواكل ترك للأسباب", "كلاهما واحد", "التواكل محمود والتوكل مذموم", "ليس مما سبق"], a: "التوكل عمل بالأسباب مع اعتماد القلب، والتواكل ترك للأسباب" },
+            { t: "الآية الكريمة الدالة على معيار التوظيف (القوة والأمانة) هي:", evidence: "وردت في قصة ابنة شعيب", opts: ["﴿إِنَّ خَيْرَ مَنِ اسْتَأْجَرْتَ الْقَوِيُّ الْأَمِينُ﴾", "﴿وَأَمْرُهُمْ شُورَى بَيْنَهُمْ﴾", "﴿وَقُولُوا لِلنَّاسِ حُسْنًا﴾", "﴿يَا أَيُّهَا الَّذِينَ آمَنُوا أَوْفُوا بِالْعُقُودِ﴾"], a: "﴿إِنَّ خَيْرَ مَنِ اسْتَأْجَرْتَ الْقَوِيُّ الْأَمِينُ﴾" },
+            { t: "الهدف الأساسي من عملية (التنظيم) في الإدارة هو:", opts: ["منع الازدواجية وتحديد المسؤوليات", "زيادة عدد الموظفين", "تعقيد الإجراءات", "إلغاء الرقابة"], a: "منع الازدواجية وتحديد المسؤوليات" },
+            { t: "استدل المؤلف على وجوب (التخطيط والإعداد) بقوله تعالى:", evidence: "﴿وَأَعِدُّوا لَهُم مَّا اسْتَطَعْتُم مِّن قُوَّةٍ﴾", opts: ["صحيح", "خطأ", "الآية خاصة بالحرب فقط", "لا علاقة لها بالإدارة"], a: "صحيح" },
+            { t: "حديث (كلكم راع وكلكم مسؤول عن رعيته) يؤصل لمبدأ:", opts: ["المسؤولية والمحاسبة", "التفويض", "التخطيط", "التسيب"], a: "المسؤولية والمحاسبة" },
+            { t: "من أخلاقيات (التوجيه) الإداري الناجح:", opts: ["الشورى وعدم الاستبداد", "القسوة والشدة", "الغموض في الأوامر", "تصيد الأخطاء"], a: "الشورى وعدم الاستبداد" },
+            { t: "الرقابة الذاتية تعني:", opts: ["استشعار مراقبة الله في السر والعلن", "انتظار المشرف لمراقبة العمل", "تركيب كاميرات مراقبة", "كتابة التقارير اليومية"], a: "استشعار مراقبة الله في السر والعلن" },
+
+            // --- الوحدة 9: النماذج ---
+            { t: "مؤلف كتاب 'تذكرة السامع والمتكلم في أدب العالم والمتعلم' هو:", opts: ["ابن جماعة", "ابن رضوان", "الماوردي", "ابن تيمية"], a: "ابن جماعة" },
+            { t: "من آداب المعلم التي ذكرها ابن جماعة:", opts: ["قول 'لا أدري' لما لا يعلم", "التكبر على الطلاب", "كتمان العلم", "استخدام العلم لجمع المال"], a: "قول 'لا أدري' لما لا يعلم" },
+            { t: "الحديث الدال على تحريم كتمان العلم هو:", opts: ["(من سُئل عن علم فكتمه ألجمه الله بلجام من نار)", "(طلب العلم فريضة)", "(العلماء ورثة الأنبياء)", "ليس مما سبق"], a: "(من سُئل عن علم فكتمه ألجمه الله بلجام من نار)" },
+            { t: "الطبيب المسلم (علي بن رضوان) اشترط في الطبيب:", opts: ["كتمان الأسرار وعفة النظر", "أن يكون غنياً", "أن يعالج بالأجر فقط", "أن يكون مشهوراً"], a: "كتمان الأسرار وعفة النظر" },
+            { t: "القاعدة الفقهية المتعلقة بمسؤولية الطبيب الجاهل:", opts: ["من تطبب ولم يُعلم منه طب فهو ضامن", "لا ضرر ولا ضرار", "اليقين لا يزول بالشك", "الضرورات تبيح المحظورات"], a: "من تطبب ولم يُعلم منه طب فهو ضامن" },
+            { t: "التعريف الاصطلاحي للحسبة هو:", opts: ["الأمر بالمعروف إذا ظهر تركه والنهي عن المنكر إذا ظهر فعله", "القضاء بين الناس", "جمع الزكاة", "حراسة الحدود"], a: "الأمر بالمعروف إذا ظهر تركه والنهي عن المنكر إذا ظهر فعله" },
+            { t: "من مهام المحتسب في الجانب (المدني):", opts: ["مراقبة الطرق والأبنية", "مراقبة الصلاة", "فحص المكاييل", "علاج المرضى"], a: "مراقبة الطرق والأبنية" },
+
+            // --- الوحدة 10: الميثاق ---
+            { t: "تنص المادة (3) من ميثاق التعليم على أن التعليم:", opts: ["رسالة تستمد أخلاقياتها من العقيدة", "وظيفة حكومية", "مهنة للكسب", "خدمة تطوعية"], a: "رسالة تستمد أخلاقياتها من العقيدة" },
+            { t: "المادة (4) تؤكد أن المعلم:", opts: ["قدوة ويدرك أن الله رقيبه", "مسؤول عن المبنى المدرسي", "يجب أن يكون صارماً", "يقتصر دوره على الفصل"], a: "قدوة ويدرك أن الله رقيبه" },
+            { t: "الحديث: (إنما بعثت لأتمم مكارم الأخلاق) يدل على:", opts: ["أهمية الأخلاق كغاية للرسالة", "أهمية العبادات فقط", "أهمية الجهاد", "أهمية التجارة"], a: "أهمية الأخلاق كغاية للرسالة" },
+            { t: "علاقة المعلم بطلابه في الميثاق تقوم على:", opts: ["المودة الحانية وحارسها الحزم", "الخوف والرهبة", "الصداقة المطلقة", "الإهمال"], a: "المودة الحانية وحارسها الحزم" },
+            { t: "المادة (6) من الميثاق تركز على دور المعلم في:", opts: ["تعزيز الانتماء الوطني", "تحصيل الراتب", "الإجازات", "الترقيات"], a: "تعزيز الانتماء الوطني" },
+
+            // --- الوحدة 11: الترسيخ ---
+            { t: "الوسيلة الأولى (الذاتية) لترسيخ الأخلاق هي:", opts: ["تنمية الرقابة الذاتية (مقام الإحسان)", "اللوائح الصارمة", "المكافآت المالية", "العقوبات"], a: "تنمية الرقابة الذاتية (مقام الإحسان)" },
+            { t: "الدليل القرآني على الرقابة الذاتية:", opts: ["﴿أَلَمْ يَعْلَمْ بِأَنَّ اللَّهَ يَرَى﴾", "﴿وَأَقِيمُوا الصَّلَاةَ﴾", "﴿وَآتُوا الزَّكَاةَ﴾", "﴿كُتِبَ عَلَيْكُمُ الصِّيَامُ﴾"], a: "﴿أَلَمْ يَعْلَمْ بِأَنَّ اللَّهَ يَرَى﴾" },
+            { t: "معنى (تصحيح الفهم) كوسيلة للترسيخ:", opts: ["اعتبار الوظيفة عبادة وطاعة لله", "تعلم القراءة", "فهم القانون", "تصحيح الأخطاء اللغوية"], a: "اعتبار الوظيفة عبادة وطاعة لله" },
+            { t: "القدوة القيادية تعني:", opts: ["تأثر الموظفين بسلوك مديرهم", "أن يعمل المدير وحده", "إلغاء الإدارة", "كثرة الاجتماعات"], a: "تأثر الموظفين بسلوك مديرهم" },
+            { t: "الحديث: (أعطوا الأجير أجره قبل أن يجف عرقه) يحث على:", opts: ["الوفاء بحقوق الموظف وعدم تأخيرها", "زيادة ساعات العمل", "تقليل الرواتب", "عدم توظيف الأجراء"], a: "الوفاء بحقوق الموظف وعدم تأخيرها" },
+            { t: "حديث (إن الله يحب إذا عمل أحدكم عملاً أن يتقنه) يدل على:", opts: ["وجوب الإتقان والجودة", "السرعة في العمل", "ترك العمل", "العمل التطوعي فقط"], a: "وجوب الإتقان والجودة" },
+
+            // --- الوحدة 12: المخالفات ---
+            { t: "الفساد الإداري هو:", opts: ["استغلال السلطة لتحقيق مصالح خاصة", "تطبيق النظام", "تحقيق الأرباح", "فشل المشروع"], a: "استغلال السلطة لتحقيق مصالح خاصة" },
+            { t: "حكم الرشوة في الإسلام:", opts: ["محرمة وملعون فاعلها", "مكروهة", "جائزة للضرورة", "مستحبة"], a: "محرمة وملعون فاعلها" },
+            { t: "الحديث الدال على تحريم هدايا الموظفين:", opts: ["(هدايا العمال غلول)", "(تهادوا تحابوا)", "(الهدية لا ترد)", "(نعم المال الصالح)"], a: "(هدايا العمال غلول)" },
+            { t: "الغلول هو:", opts: ["الخيانة في المال العام أو الغنيمة", "السرقة من المنزل", "الربح الحلال", "الميراث"], a: "الخيانة في المال العام أو الغنيمة" },
+            { t: "الحديث العام المحرم للغش في كل شيء:", opts: ["(من غش فليس منا)", "(لا ضرر ولا ضرار)", "(المسلم أخو المسلم)", "(الدين النصيحة)"], a: "(من غش فليس منا)" },
+            { t: "الشفاعة السيئة هي:", opts: ["التي تأكل حقوق الآخرين أو تقدم غير المستحق", "مساعدة المحتاج", "الإصلاح بين الناس", "الدعاء للغير"], a: "التي تأكل حقوق الآخرين أو تقدم غير المستحق" },
+            { t: "الدليل على تحريم الشفاعة السيئة:", opts: ["﴿مَن يَشْفَعْ شَفَاعَةً سَيِّئَةً يَكُن لَّهُ كِفْلٌ مِّنْهَا﴾", "﴿وَتَعَاوَنُوا عَلَى الْبِرِّ﴾", "﴿إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ﴾", "ليس مما سبق"], a: "﴿مَن يَشْفَعْ شَفَاعَةً سَيِّئَةً يَكُن لَّهُ كِفْلٌ مِّنْهَا﴾" },
+            { t: "إفشاء أسرار العمل يعتبر:", opts: ["خيانة للأمانة", "شفافية", "ذكاء", "حرية شخصية"], a: "خيانة للأمانة" },
+            { t: "الدليل على وجوب حفظ الأسرار:", opts: ["(المجالس بالأمانة)", "(الدين النصيحة)", "(المسلم مرآة أخيه)", "(الكلمة الطيبة صدقة)"], a: "(المجالس بالأمانة)" },
+            { t: "يرى ابن تيمية في عقوبة الغاش:", opts: ["التشهير به ليعتبر الناس", "قتله", "نصحه سراً فقط", "تجاهله"], a: "التشهير به ليعتبر الناس" },
+            { t: "السرقة توجب الحد (القطع)، أما الاختلاس فعقوبته:", opts: ["تعزيرية يقدرها القاضي", "القطع", "القتل", "لا عقوبة له"], a: "تعزيرية يقدرها القاضي" },
+            { t: "الآية: (يَا أَيُّهَا الَّذِينَ آمَنُوا إِن جَاءَكُمْ فَاسِقٌ بِنَبَإٍ فَتَبَيَّنُوا) تدل على:", opts: ["التثبت قبل اتخاذ القرار", "التسرع في الحكم", "قبول الإشاعات", "رفض الأخبار"], a: "التثبت قبل اتخاذ القرار" },
+            { t: "حديث أبي ذر (يا أبا ذر، إنك ضعيف، وإنها أمانة) يدل على:", opts: ["أهمية القوة والكفاءة في الإدارة", "فضل الضعف", "منع أبي ذر من الخير", "عدم أهمية الإمارة"], a: "أهمية القوة والكفاءة في الإدارة" },
+            { t: "من الآيات الدالة على الشورى:", opts: ["﴿وَشَاوِرْهُمْ فِي الْأَمْرِ﴾", "﴿خُذِ الْعَفْوَ﴾", "﴿وَأَعْرِضْ عَنِ الْجَاهِلِينَ﴾", "﴿إِنَّ اللَّهَ مَعَ الصَّابِرِينَ﴾"], a: "﴿وَشَاوِرْهُمْ فِي الْأَمْرِ﴾" }
         ];
 
         let finalScore = 0;
@@ -421,7 +344,7 @@
             db.forEach((q, i) => {
                 let evidenceHtml = q.evidence ? `<div class="evidence-text">${q.evidence}</div>` : '';
                 html += `<div class="question-card">
-                    <div class="q-badge">Question ${i+1}</div>
+                    <div class="q-badge">سؤال ${i+1}</div>
                     <div class="q-text">${q.t}</div>
                     ${evidenceHtml}
                     <div>`;
@@ -452,7 +375,7 @@
                 if(userVal === q.a) { score++; correct++; } else { wrong++; }
             });
 
-            // حساب الدرجة من 50
+            // حساب الدرجة من 50 (المجموع 40 سؤال، نحولها لـ 50)
             finalScore = (score / db.length) * 50;
             
             document.getElementById('quiz-screen').style.display = 'none';
@@ -462,12 +385,12 @@
             
             // شرط النجاح: 25 درجة (النصف)
             if(finalScore >= 25) {
-                document.getElementById('status-val').innerText = "PASSED (ناجح)";
+                document.getElementById('status-val').innerText = "ناجح";
                 document.getElementById('status-val').style.color = "#27ae60";
                 document.getElementById('certificate-input-area').style.display = 'block';
                 document.getElementById('fail-message-area').style.display = 'none';
             } else {
-                document.getElementById('status-val').innerText = "FAILED (لم يجتز)";
+                document.getElementById('status-val').innerText = "لم تجتز";
                 document.getElementById('status-val').style.color = "#c62828";
                 document.getElementById('certificate-input-area').style.display = 'none';
                 document.getElementById('fail-message-area').style.display = 'block';
@@ -476,7 +399,7 @@
             new Chart(document.getElementById('chart'), {
                 type: 'doughnut',
                 data: {
-                    labels: ['صحيحة', 'خاطئة'],
+                    labels: ['إجابات صحيحة', 'إجابات خاطئة'],
                     datasets: [{ data: [correct, wrong], backgroundColor: ['#27ae60', '#c62828'], borderWidth:0 }]
                 }
             });
