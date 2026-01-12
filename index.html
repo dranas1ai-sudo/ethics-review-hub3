@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اختبار الكفاءة الشرعية | المستوى المتقدم</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&family=Amiri:wght@400;700&family=Cinzel:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <title>اختبار الكفاءة الشرعية | Professional Certification</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;700&family=Great+Vibes&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -12,8 +12,9 @@
         :root {
             --bg-dark: #050505;
             --bg-card: #121212;
-            --primary: #c62828; /* أحمر دموي غامق */
-            --gold: #d4af37;
+            --primary: #800000; /* أحمر ماروني فخم */
+            --gold: #D4AF37;    /* ذهبي حقيقي */
+            --gold-dark: #AA8C2C;
             --text-white: #e0e0e0;
             --success: #27ae60;
             --error: #c62828;
@@ -33,40 +34,44 @@
 
         /* --- البداية --- */
         #start-screen { text-align: center; margin-top: 15vh; padding: 30px; animation: fadeIn 1s; max-width: 700px; }
-        .hero-title { font-size: 2.5rem; color: #fff; margin-bottom: 15px; font-weight: 900; }
+        .hero-title { font-size: 2.8rem; color: #fff; margin-bottom: 15px; font-weight: 900; letter-spacing: 1px; }
         .hero-subtitle { font-size: 1.1rem; color: #aaa; margin-bottom: 40px; line-height: 1.8; }
-        .quran-quote { font-family: 'Amiri', serif; color: var(--gold); font-size: 1.3rem; margin-bottom: 20px; display: block; }
+        .quran-quote { font-family: 'Amiri', serif; color: var(--gold); font-size: 1.4rem; margin-bottom: 20px; display: block; text-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
 
         .btn {
-            background: linear-gradient(45deg, var(--primary), #5a0000);
-            color: #fff; border: none; padding: 15px 60px; font-size: 1.3rem; border-radius: 5px;
+            background: linear-gradient(135deg, var(--primary), #400000);
+            color: #fff; border: 1px solid var(--gold); padding: 15px 60px; font-size: 1.2rem; border-radius: 4px;
             cursor: pointer; transition: 0.3s; font-weight: bold; letter-spacing: 1px;
-            box-shadow: 0 4px 20px rgba(198, 40, 40, 0.4); border: 1px solid var(--primary);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5); position: relative; overflow: hidden;
         }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 25px rgba(198, 40, 40, 0.7); }
+        .btn:hover { box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); border-color: #fff; }
 
         /* --- الاختبار --- */
         #quiz-screen { display: none; width: 95%; max-width: 850px; margin: 40px auto; }
         
         .question-card {
-            background: var(--bg-card); padding: 35px; border-radius: 12px; margin-bottom: 25px;
-            border: 1px solid #333; border-right: 6px solid var(--primary);
+            background: var(--bg-card); padding: 35px; border-radius: 8px; margin-bottom: 25px;
+            border: 1px solid #333; border-right: 4px solid var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        .q-badge { background: #222; padding: 3px 12px; border-radius: 4px; font-size: 0.85rem; margin-bottom: 15px; display: inline-block; color: var(--gold); border: 1px solid #444; }
+        .q-badge { background: #222; padding: 5px 15px; border-radius: 50px; font-size: 0.85rem; margin-bottom: 15px; display: inline-block; color: var(--gold); border: 1px solid #444; }
         .q-text { font-size: 1.3rem; margin-bottom: 25px; font-weight: 700; line-height: 1.6; }
         
-        /* تنسيق الآيات والأحاديث داخل السؤال */
-        .evidence-text { font-family: 'Amiri', serif; color: #81c784; font-size: 1.4rem; display: block; margin: 10px 0; background: rgba(46, 204, 113, 0.05); padding: 10px; border-radius: 5px; border-right: 3px solid #81c784; }
+        .evidence-text { 
+            font-family: 'Amiri', serif; color: #a5d6a7; font-size: 1.3rem; display: block; margin: 15px 0; 
+            background: rgba(255,255,255,0.03); padding: 15px; border-radius: 5px; border-right: 3px solid #a5d6a7; 
+        }
 
         .option-label {
-            background: #0f0f0f; padding: 18px; border-radius: 8px; cursor: pointer;
+            background: #0f0f0f; padding: 18px; border-radius: 4px; cursor: pointer;
             border: 1px solid #333; transition: 0.2s; display: flex; align-items: center; margin-bottom: 12px;
             font-size: 1.1rem;
         }
-        .option-label:hover { background: #1a1a1a; border-color: #666; }
+        .option-label:hover { background: #1a1a1a; border-color: var(--gold); }
         input[type="radio"] { display: none; }
         input[type="radio"]:checked + .option-label {
-            background: rgba(198, 40, 40, 0.1); border-color: var(--primary); color: #fff;
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.1), transparent);
+            border-color: var(--gold); color: var(--gold);
         }
 
         .correct-answer { background-color: rgba(39, 174, 96, 0.15) !important; border-color: var(--success) !important; color: var(--success) !important; }
@@ -75,37 +80,99 @@
         /* --- النتائج --- */
         #result-screen { display: none; width: 95%; max-width: 900px; margin: 40px auto; text-align: center; }
         .stats-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 40px; }
-        .stat-card { background: var(--bg-card); padding: 25px; border-radius: 10px; min-width: 220px; border: 1px solid #333; }
-        .stat-value { font-size: 3rem; font-weight: 900; color: var(--primary); }
+        .stat-card { background: var(--bg-card); padding: 25px; border-radius: 8px; min-width: 220px; border: 1px solid #333; }
+        .stat-value { font-size: 3rem; font-weight: 900; color: var(--gold); font-family: 'Cinzel', serif; }
 
         /* --- الشهادة والمدخلات --- */
-        #certificate-input-area { display: none; background: #0f0f0f; padding: 40px; border-radius: 15px; border: 1px solid var(--gold); margin-top: 30px; animation: slideUp 0.6s; }
+        #certificate-input-area { display: none; background: #0f0f0f; padding: 40px; border-radius: 15px; border: 1px solid var(--gold); margin-top: 30px; animation: slideUp 0.6s; box-shadow: 0 0 30px rgba(212, 175, 55, 0.1); }
         #fail-message-area { display: none; background: rgba(198, 40, 40, 0.05); padding: 30px; border-radius: 10px; border: 1px solid var(--error); margin-top: 30px; color: var(--error); }
 
         .input-group input { 
-            padding: 15px; font-size: 1.2rem; border-radius: 5px; border: 1px solid #444; width: 300px; 
-            text-align: center; background: #000; color: #fff; margin-bottom: 20px;
+            padding: 15px; font-size: 1.2rem; border-radius: 4px; border: 1px solid #444; width: 350px; 
+            text-align: center; background: #000; color: #fff; margin-bottom: 20px; font-family: 'Tajawal';
+        }
+        .input-group input:focus { outline: none; border-color: var(--gold); }
+
+        /* --- تصميم الشهادة الاحترافي جداً --- */
+        #certificate-display { display: none; margin-top: 50px; text-align: center; }
+        
+        .cert-paper { 
+            position: relative; width: 100%; max-width: 1000px; height: 750px; margin: 0 auto; 
+            background: #fff; color: #1a1a1a; padding: 20px; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            overflow: hidden;
         }
 
-        /* --- ورقة الشهادة --- */
-        #certificate-display { display: none; margin-top: 50px; }
-        .cert-paper { position: relative; width: 100%; max-width: 950px; margin: 0 auto; background: #fff; color: #1a1a1a; padding: 15px; box-shadow: 0 0 80px rgba(0,0,0,0.9); }
-        .cert-frame { border: 8px solid #111; padding: 5px; height: 100%; }
-        .cert-inner {
-            border: 3px solid var(--gold); padding: 50px; height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(240,240,240,1) 100%);
-            position: relative; text-align: center;
+        /* الخلفية الزخرفية */
+        .cert-bg-pattern {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/gplay.png');
+            opacity: 0.4; z-index: 0;
         }
-        .cert-title-en { font-family: 'Cinzel', serif; font-size: 3.2rem; color: #111; letter-spacing: 3px; font-weight: 700; }
-        .cert-title-ar { font-family: 'Amiri', serif; font-size: 2.5rem; color: var(--primary); margin-top: 10px; margin-bottom: 40px; }
-        .cert-text { font-family: 'Amiri', serif; font-size: 1.5rem; color: #444; margin: 10px 0; }
-        .student-name { font-family: 'Great Vibes', cursive; font-size: 4.5rem; color: #000; margin: 30px 0; border-bottom: 2px solid var(--gold); display: inline-block; padding: 0 50px; min-width: 500px; }
         
-        .gold-seal {
-            width: 150px; height: 150px; background: linear-gradient(135deg, #f1c40f, #b7950b);
-            border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            color: #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.2); font-family: 'Cinzel', serif; margin: 0 auto;
+        /* الإطار الخارجي الذهبي */
+        .cert-frame-outer {
+            border: 10px solid #1a1a1a;
+            height: 100%; padding: 5px; position: relative; z-index: 1;
         }
+        
+        /* الإطار الداخلي المزخرف */
+        .cert-frame-inner {
+            border: 3px solid var(--gold);
+            height: 100%; padding: 40px;
+            position: relative;
+            background: radial-gradient(circle, #fff 40%, #f9f9f9 100%);
+        }
+
+        /* زوايا الإطار */
+        .c-corner {
+            position: absolute; width: 50px; height: 50px;
+            border-style: double; border-color: var(--gold); border-width: 0;
+        }
+        .c-tl { top: 10px; left: 10px; border-top-width: 6px; border-left-width: 6px; }
+        .c-tr { top: 10px; right: 10px; border-top-width: 6px; border-right-width: 6px; }
+        .c-bl { bottom: 10px; left: 10px; border-bottom-width: 6px; border-left-width: 6px; }
+        .c-br { bottom: 10px; right: 10px; border-bottom-width: 6px; border-right-width: 6px; }
+
+        /* محتوى الشهادة */
+        .cert-header { margin-bottom: 20px; border-bottom: 2px solid var(--gold); padding-bottom: 10px; display: inline-block; width: 80%; }
+        .cert-title-en { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #1a1a1a; letter-spacing: 5px; font-weight: 700; margin: 0; }
+        .cert-title-ar { font-family: 'Amiri', serif; font-size: 2.2rem; color: var(--primary); margin-top: -10px; }
+
+        .cert-body { margin: 30px 0; }
+        .cert-text-sm { font-family: 'Cinzel', serif; font-size: 1rem; color: #555; text-transform: uppercase; letter-spacing: 2px; }
+        .cert-text-ar { font-family: 'Tajawal', sans-serif; font-size: 1.1rem; color: #666; margin-top: 5px; }
+
+        .student-name { 
+            font-family: 'Amiri', serif; /* خط عربي للأسماء العربية */
+            font-size: 3.5rem; color: #000; margin: 15px 0; 
+            font-weight: bold; text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+        }
+        
+        .cert-desc { font-family: 'Amiri', serif; font-size: 1.4rem; color: #333; line-height: 1.6; max-width: 80%; margin: 0 auto; }
+        
+        .cert-grade-box {
+            margin: 30px auto; border: 1px solid var(--gold); padding: 10px 40px; display: inline-block;
+            background: linear-gradient(to right, #fff, #fcfcfc);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .grade-label { font-family: 'Cinzel', serif; font-size: 0.9rem; color: #777; }
+        .grade-value { font-family: 'Cinzel', serif; font-size: 2rem; color: var(--primary); font-weight: bold; }
+
+        /* التذييل والأختام */
+        .cert-footer { 
+            display: flex; justify-content: space-between; align-items: flex-end; 
+            margin-top: 60px; padding: 0 50px;
+        }
+
+        .seal-container { position: relative; width: 140px; height: 140px; margin: 0 auto; }
+        .gold-seal-img { width: 100%; height: 100%; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3)); }
+        
+        .signature-block { text-align: center; width: 250px; }
+        .sig-img { height: 60px; margin-bottom: -10px; transform: rotate(-5deg); }
+        .sig-line { border-bottom: 2px solid #1a1a1a; margin-bottom: 5px; }
+        .sig-title { font-family: 'Cinzel', serif; font-size: 0.8rem; font-weight: bold; color: var(--primary); }
+        .sig-date { font-family: 'Cinzel', serif; font-size: 0.9rem; margin-bottom: 5px; color: #333; }
 
         @keyframes slideUp { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);} }
         @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
@@ -114,14 +181,14 @@
 <body>
 
     <div id="start-screen">
-        <i class="fas fa-quran hero-icon"></i>
-        <h1 class="hero-title">اختبار الأدلة الشرعية وأخلاقيات المهنة</h1>
-        <span class="quran-quote">﴿وَقُلِ اعْمَلُوا فَسَيَرَى اللَّهُ عَمَلَكُمْ وَرَسُولُهُ وَالْمُؤْمِنُونَ﴾</span>
+        <i class="fas fa-balance-scale hero-icon" style="font-size: 4rem; color:var(--gold); margin-bottom:20px;"></i>
+        <h1 class="hero-title">اختبار الكفاءة المهنية المتقدم</h1>
+        <span class="quran-quote">﴿إِنَّ خَيْرَ مَنِ اسْتَأْجَرْتَ الْقَوِيُّ الْأَمِينُ﴾</span>
         <p class="hero-subtitle">
-            اختبار عالي المستوى يركز على ربط الآيات والأحاديث بالمفاهيم الإدارية.<br>
-            <span style="color:var(--primary); font-weight:bold;">تحدي النخبة:</span> درجة النجاح لإصدار الشهادة هي 45/50.
+            اختبار دقيق مبني على الكتاب المقرر (ص 92-162) يركز على الأدلة والعلماء.<br>
+            <span style="color:var(--primary); font-weight:bold; background:rgba(255,255,255,0.1); padding:5px 10px; border-radius:4px;">شرط الاجتياز: 25 درجة من 50</span>
         </p>
-        <button class="btn" onclick="startQuiz()">بدء الاختبار</button>
+        <button class="btn" onclick="startQuiz()">ابدأ التحدي <i class="fas fa-arrow-left"></i></button>
     </div>
 
     <div id="quiz-screen">
@@ -131,95 +198,110 @@
     </div>
 
     <div id="result-screen">
-        <h2 style="margin-bottom: 30px;">تقرير النتيجة</h2>
+        <h2 style="margin-bottom: 30px; font-family:'Cinzel'; letter-spacing:2px;">EXAM RESULTS</h2>
         <div class="stats-row">
             <div class="stat-card">
-                <div class="stat-value"><span id="score-val">0</span>/50</div>
-                <div class="stat-label">الدرجة النهائية</div>
+                <div class="stat-value"><span id="score-val">0</span><span style="font-size:1.5rem; color:#666;">/50</span></div>
+                <div class="stat-label">FINAL SCORE</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value" id="status-val">-</div>
-                <div class="stat-label">الحالة</div>
+                <div class="stat-value" id="status-val" style="font-size:2rem;">-</div>
+                <div class="stat-label">STATUS</div>
             </div>
         </div>
 
         <div style="max-width:350px; margin:0 auto;"><canvas id="chart"></canvas></div>
         
-        <button class="btn" style="background:#222; margin:30px 0; font-size:1rem;" onclick="reviewAnswers()">مراجعة الإجابات والأدلة</button>
+        <button class="btn" style="background:#222; border:1px solid #444; margin:30px 0; font-size:1rem;" onclick="reviewAnswers()">مراجعة الإجابات التفصيلية</button>
 
         <div id="fail-message-area">
-            <i class="fas fa-exclamation-triangle fa-3x" style="margin-bottom:15px;"></i><br>
-            <span style="font-size:1.4rem; font-weight:bold;">لم تجتز الاختبار</span><br><br>
-            درجتك أقل من 45. يتطلب هذا الاختبار دقة عالية في معرفة الأدلة الشرعية.<br>
-            لن يتم إصدار الشهادة.
-            <br><br>
-            <button class="btn" onclick="location.reload()" style="font-size:1rem; padding:10px 20px;">إعادة المحاولة</button>
+            <i class="fas fa-times-circle fa-3x" style="margin-bottom:15px;"></i><br>
+            <span style="font-size:1.4rem; font-weight:bold;">عذراً، لم تجتز الاختبار</span><br><br>
+            لقد حصلت على أقل من 25 درجة.<br>
+            الشهادة تتطلب مستوى عالٍ من الإتقان والمعرفة بالأدلة الشرعية.<br>
+            <br>
+            <button class="btn" onclick="location.reload()" style="font-size:1rem; padding:10px 30px;">إعادة المحاولة</button>
         </div>
 
         <div id="certificate-input-area">
-            <h3 style="color:var(--gold); margin-bottom:15px;">ما شاء الله! أداء متميز</h3>
-            <p style="color:#ccc; margin-bottom:20px;">لقد أثبت جدارتك في فهم التأصيل الشرعي للمهنة. اكتب اسمك لإصدار الشهادة.</p>
+            <div style="text-align:center; margin-bottom:20px;">
+                <i class="fas fa-certificate fa-3x" style="color:var(--gold);"></i>
+            </div>
+            <h3 style="color:var(--gold); margin-bottom:10px;">تهانينا! أنت مؤهل للحصول على الشهادة</h3>
+            <p style="color:#ccc; margin-bottom:20px; font-size:0.95rem;">يرجى كتابة الاسم الثلاثي (باللغة العربية أو الإنجليزية) كما تريد أن يظهر في الوثيقة الرسمية.</p>
             <div class="input-group">
-                <input type="text" id="studentName" placeholder="الاسم كما سيظهر في الشهادة">
+                <input type="text" id="studentName" placeholder="الاسم الكامل هنا..." autocomplete="off">
                 <br>
-                <button class="btn" onclick="generateCert()">إصدار الشهادة</button>
+                <button class="btn" onclick="generateCert()">إصدار الشهادة الآن</button>
             </div>
         </div>
 
         <div id="certificate-display">
             <div class="cert-paper">
-                <div class="cert-frame">
-                    <div class="cert-inner">
-                        <div class="cert-title-en">CERTIFICATE OF MASTERY</div>
-                        <div class="cert-title-ar">شهادة إتقان في أخلاقيات المهنة</div>
+                <div class="cert-bg-pattern"></div>
+                <div class="cert-frame-outer">
+                    <div class="cert-frame-inner">
+                        <div class="c-corner c-tl"></div><div class="c-corner c-tr"></div>
+                        <div class="c-corner c-bl"></div><div class="c-corner c-br"></div>
 
-                        <p class="cert-text">This is to certify that / تشهد الإدارة بأن</p>
-                        <div class="student-name" id="cert-name">Student Name</div>
-                        
-                        <p class="cert-text">
-                            Has demonstrated exceptional knowledge in Islamic Professional Ethics<br>
-                            قد أتم بنجاح اختبار الكفاءة المبني على الأدلة الشرعية
-                        </p>
-                        
-                        <div style="margin: 40px 0; border: 1px solid #eee; padding: 20px; display:inline-block;">
-                            <span style="font-family:'Amiri'; font-size:1.2rem; color:#666;">الدرجة المكتسبة</span><br>
-                            <span style="font-family:'Cinzel'; font-size:2.5rem; color:var(--primary); font-weight:bold;" id="cert-score-final"></span> <span style="font-size:1.5rem">/ 50</span>
+                        <div class="cert-header">
+                            <h1 class="cert-title-en">CERTIFICATE</h1>
+                            <h2 class="cert-title-ar">شهادة كفاءة مهنية</h2>
                         </div>
 
-                        <div style="font-family:'Amiri'; font-size:1.3rem; color:var(--primary); margin:20px 0;">
-                            (( إن الله يحب إذا عمل أحدكم عملاً أن يتقنه ))
-                        </div>
-
-                        <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:40px;">
-                            <div style="text-align:center;">
-                                <div style="border-bottom:2px solid #000; width:200px; margin-bottom:10px;"></div>
-                                <span style="font-family:'Cinzel'; font-size:0.9rem;">Date: <span id="cert-date"></span></span>
-                            </div>
+                        <div class="cert-body">
+                            <div class="cert-text-sm">THIS IS TO CERTIFY THAT</div>
+                            <div class="cert-text-ar">تشهد إدارة الاختبارات بأن</div>
                             
-                            <div class="gold-seal">
-                                <i class="fas fa-star"></i>
-                                <div style="font-size:1.2rem; font-weight:bold;">ELITE</div>
-                                <div style="font-size:0.7rem;">PASSED</div>
+                            <div class="student-name" id="cert-name">Student Name</div>
+                            
+                            <div class="cert-desc">
+                                Has successfully completed the advanced examination in <strong>Professional Ethics</strong> based on the approved curriculum, demonstrating mastery of Islamic management principles.
+                                <br>
+                                قد أتم بنجاح الاختبار المتقدم في <strong>أخلاقيات المهنة</strong> وأظهر إتقاناً للمفاهيم الإدارية الشرعية.
                             </div>
 
-                            <div style="text-align:center;">
-                                <div style="border-bottom:2px solid #000; width:200px; margin-bottom:10px;"></div>
-                                <span style="font-family:'Cinzel'; font-size:0.9rem;">Instructor Signature</span>
+                            <div class="cert-grade-box">
+                                <div class="grade-label">FINAL GRADE / الدرجة النهائية</div>
+                                <div class="grade-value"><span id="cert-score-final"></span> / 50</div>
                             </div>
                         </div>
+
+                        <div class="cert-footer">
+                            <div class="signature-block">
+                                <div class="sig-date" id="cert-date">DD/MM/YYYY</div>
+                                <div class="sig-line"></div>
+                                <div class="sig-title">DATE / التاريخ</div>
+                            </div>
+
+                            <div class="seal-container">
+                                <svg viewBox="0 0 100 100" class="gold-seal-img">
+                                    <circle cx="50" cy="50" r="45" fill="#C5A059" stroke="#7A5C1F" stroke-width="2"/>
+                                    <circle cx="50" cy="50" r="38" fill="none" stroke="#7A5C1F" stroke-width="1" stroke-dasharray="2,2"/>
+                                    <path d="M50 15 L55 35 L75 35 L60 50 L65 70 L50 55 L35 70 L40 50 L25 35 L45 35 Z" fill="#997B30" opacity="0.3"/>
+                                    <text x="50" y="55" font-family="serif" font-size="12" font-weight="bold" fill="#3d2b05" text-anchor="middle">PASSED</text>
+                                    <text x="50" y="75" font-family="serif" font-size="6" fill="#3d2b05" text-anchor="middle">PROFESSIONAL</text>
+                                </svg>
+                            </div>
+
+                            <div class="signature-block">
+                                <div class="sig-img" style="font-family:'Great Vibes'; font-size:2rem; color:#000;">Director.</div>
+                                <div class="sig-line"></div>
+                                <div class="sig-title">DIRECTOR SIGNATURE / التوقيع</div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
             <br><br>
-            <button class="btn" onclick="window.print()">طباعة / حفظ PDF <i class="fas fa-print"></i></button>
+            <button class="btn" onclick="window.print()" style="margin-bottom:50px;">طباعة / حفظ PDF <i class="fas fa-print"></i></button>
         </div>
     </div>
 
     <script>
-        // بنك الأسئلة (تركيز كثيف على الأدلة الشرعية)
-        // الأسئلة صعبة وتتطلب معرفة الدليل الدقيق
+        // بنك الأسئلة (نفس الأسئلة القوية السابقة)
         const db = [
-            // الوحدة 8: الإدارة
             { 
                 t: "استدل المؤلف على وجوب (التخطيط والإعداد) في العمل الإداري بقوله تعالى:", 
                 evidence: "﴿وَأَعِدُّوا لَهُم مَّا اسْتَطَعْتُم مِّن قُوَّةٍ﴾",
@@ -242,8 +324,6 @@
                 opts: ["التوكل هو ترك الأسباب، والتواكل هو العمل", "التوكل: عمل القلب والجوارح (الأخذ بالأسباب)، التواكل: عمل القلب دون الجوارح", "كلاهما واحد", "التواكل صفة محمودة"], 
                 a: "التوكل: عمل القلب والجوارح (الأخذ بالأسباب)، التواكل: عمل القلب دون الجوارح" 
             },
-
-            // الوحدة 9: النماذج (ابن جماعة، ابن رضوان) والحسبة
             { 
                 t: "استشهد (ابن جماعة) في آداب المعلم بحديث يدل على تحريم كتمان العلم، وهو:", 
                 opts: ["(من سُئل عن علم فكتمه ألجمه الله بلجام من نار)", "(طلب العلم فريضة)", "(العلماء ورثة الأنبياء)", "(بلّغوا عني ولو آية)"], 
@@ -260,8 +340,6 @@
                 opts: ["﴿قُل لِّلْمُؤْمِنِينَ يَغُضُّوا مِنْ أَبْصَارِهِمْ﴾", "﴿وَأَقِيمُوا الصَّلَاةَ﴾", "﴿وَكُلُوا وَاشْرَبُوا﴾", "جميع ما سبق"], 
                 a: "﴿قُل لِّلْمُؤْمِنِينَ يَغُضُّوا مِنْ أَبْصَارِهِمْ﴾" 
             },
-
-            // الوحدة 10: الميثاق
             { 
                 t: "ينص الميثاق على أن التعليم رسالة، استناداً لقول النبي ﷺ:", 
                 opts: ["(إنما بعثت لأتمم مكارم الأخلاق)", "(لا ضرر ولا ضرار)", "(المسلم من سلم المسلمون من لسانه)", "(الدين النصيحة)"], 
@@ -273,8 +351,6 @@
                 opts: ["مقام الإحسان", "مقام الإسلام", "أركان الصلاة", "الواجبات الشكلية"], 
                 a: "مقام الإحسان" 
             },
-
-            // الوحدة 11: الترسيخ
             { 
                 t: "الحديث الذي يعتبر أصلاً في (حفظ حقوق الموظف/الأجير) والرضا الوظيفي هو:", 
                 opts: ["(أعطوا الأجير أجره قبل أن يجف عرقه)", "(لا يؤمن أحدكم حتى يحب لأخيه ما يحب لنفسه)", "(اليد العليا خير من اليد السفلى)", "ليس مما سبق"], 
@@ -285,8 +361,6 @@
                 opts: ["(إن الله يحب إذا عمل أحدكم عملاً أن يتقنه)", "(المؤمن القوي خير من المؤمن الضعيف)", "(إن الله كتب الإحسان على كل شيء)", "أ + ج"], 
                 a: "أ + ج" 
             },
-
-            // الوحدة 12: المخالفات (أدلة التحريم)
             { 
                 t: "ما هو الحديث الذي يدل على أن (هدايا الموظفين) بسبب مناصبهم تعتبر مالاً حراماً؟", 
                 evidence: "قال ﷺ في حديث ابن اللتبية:",
@@ -309,8 +383,6 @@
                 opts: ["صحيح", "خطأ، الشفاعة كلها جائزة", "الآية منسوخة", "ليس مما سبق"], 
                 a: "صحيح" 
             },
-
-            // أسئلة إضافية صعبة لرفع العدد
             { 
                 t: "في قوله تعالى (إِنَّا عَرَضْنَا الْأَمَانَةَ عَلَى السَّمَاوَاتِ وَالْأَرْضِ...)، الأمانة تشمل:", 
                 opts: ["الفرائض الشرعية", "الوظائف والأعمال", "الودائع وحقوق الناس", "جميع ما سبق"], 
@@ -349,7 +421,7 @@
             db.forEach((q, i) => {
                 let evidenceHtml = q.evidence ? `<div class="evidence-text">${q.evidence}</div>` : '';
                 html += `<div class="question-card">
-                    <div class="q-badge">سؤال ${i+1}</div>
+                    <div class="q-badge">Question ${i+1}</div>
                     <div class="q-text">${q.t}</div>
                     ${evidenceHtml}
                     <div>`;
@@ -388,13 +460,14 @@
             
             document.getElementById('score-val').innerText = finalScore.toFixed(1);
             
-            if(finalScore >= 45) {
-                document.getElementById('status-val').innerText = "اجتياز بتفوق";
+            // شرط النجاح: 25 درجة (النصف)
+            if(finalScore >= 25) {
+                document.getElementById('status-val').innerText = "PASSED (ناجح)";
                 document.getElementById('status-val').style.color = "#27ae60";
                 document.getElementById('certificate-input-area').style.display = 'block';
                 document.getElementById('fail-message-area').style.display = 'none';
             } else {
-                document.getElementById('status-val').innerText = "لم تجتز";
+                document.getElementById('status-val').innerText = "FAILED (لم يجتز)";
                 document.getElementById('status-val').style.color = "#c62828";
                 document.getElementById('certificate-input-area').style.display = 'none';
                 document.getElementById('fail-message-area').style.display = 'block';
@@ -403,7 +476,7 @@
             new Chart(document.getElementById('chart'), {
                 type: 'doughnut',
                 data: {
-                    labels: ['إجابات صحيحة', 'إجابات خاطئة'],
+                    labels: ['صحيحة', 'خاطئة'],
                     datasets: [{ data: [correct, wrong], backgroundColor: ['#27ae60', '#c62828'], borderWidth:0 }]
                 }
             });
