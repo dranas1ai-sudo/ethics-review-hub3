@@ -61,84 +61,27 @@
             background: rgba(255,255,255,0.03); padding: 15px; border-radius: 5px; border-right: 3px solid #a5d6a7; 
         }
 
-        /* --- تصميم الخيارات (Radio Buttons) --- */
-        .option-container {
-            margin-bottom: 12px;
-            position: relative;
-        }
-        
-        .option-container input[type="radio"] {
-            position: absolute;
-            opacity: 0;
-            cursor: pointer;
-            height: 0;
-            width: 0;
-        }
+        .option-container { margin-bottom: 12px; position: relative; }
+        .option-container input[type="radio"] { position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0; }
 
         .option-label {
-            display: flex;
-            align-items: center;
-            background: #0f0f0f;
-            padding: 18px;
-            border-radius: 4px;
-            cursor: pointer;
-            border: 1px solid #333;
-            transition: all 0.2s ease;
-            font-size: 1.1rem;
-            color: #ccc;
+            display: flex; align-items: center; background: #0f0f0f; padding: 18px; border-radius: 4px;
+            cursor: pointer; border: 1px solid #333; transition: all 0.2s ease; font-size: 1.1rem; color: #ccc;
         }
+        .option-label:hover { background: #1a1a1a; border-color: #666; }
 
-        .option-label:hover {
-            background: #1a1a1a;
-            border-color: #666;
-        }
-
-        .option-icon {
-            width: 24px;
-            height: 24px;
-            border: 2px solid #555;
-            border-radius: 50%;
-            margin-left: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.2s;
-            flex-shrink: 0;
-        }
-        .option-icon::after {
-            content: '';
-            width: 12px;
-            height: 12px;
-            background: var(--gold);
-            border-radius: 50%;
-            display: none;
-        }
+        .option-icon { width: 24px; height: 24px; border: 2px solid #555; border-radius: 50%; margin-left: 15px; display: flex; align-items: center; justify-content: center; transition: 0.2s; flex-shrink: 0; }
+        .option-icon::after { content: ''; width: 12px; height: 12px; background: var(--gold); border-radius: 50%; display: none; }
 
         .option-container input[type="radio"]:checked + .option-label {
             background: linear-gradient(90deg, rgba(212, 175, 55, 0.15), transparent);
-            border-color: var(--gold);
-            color: #fff;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+            border-color: var(--gold); color: #fff; box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
         }
-        
-        .option-container input[type="radio"]:checked + .option-label .option-icon {
-            border-color: var(--gold);
-        }
-        .option-container input[type="radio"]:checked + .option-label .option-icon::after {
-            display: block;
-        }
+        .option-container input[type="radio"]:checked + .option-label .option-icon { border-color: var(--gold); }
+        .option-container input[type="radio"]:checked + .option-label .option-icon::after { display: block; }
 
-        /* ألوان التصحيح */
-        .correct-style { 
-            background-color: rgba(39, 174, 96, 0.2) !important; 
-            border-color: var(--success) !important; 
-            color: var(--success) !important; 
-        }
-        .wrong-style { 
-            background-color: rgba(198, 40, 40, 0.2) !important; 
-            border-color: var(--error) !important; 
-            color: var(--error) !important; 
-        }
+        .correct-style { background-color: rgba(39, 174, 96, 0.2) !important; border-color: var(--success) !important; color: var(--success) !important; }
+        .wrong-style { background-color: rgba(198, 40, 40, 0.2) !important; border-color: var(--error) !important; color: var(--error) !important; }
 
         /* --- النتائج --- */
         #result-screen { display: none; width: 95%; max-width: 900px; margin: 40px auto; text-align: center; }
@@ -146,79 +89,33 @@
         .stat-card { background: var(--bg-card); padding: 25px; border-radius: 8px; min-width: 220px; border: 1px solid #333; }
         .stat-value { font-size: 3rem; font-weight: 900; color: var(--gold); font-family: 'Cinzel', serif; }
 
-        /* --- الشهادة والمدخلات --- */
         #certificate-input-area { display: none; background: #0f0f0f; padding: 40px; border-radius: 15px; border: 1px solid var(--gold); margin-top: 30px; animation: slideUp 0.6s; box-shadow: 0 0 30px rgba(212, 175, 55, 0.1); }
         #fail-message-area { display: none; background: rgba(198, 40, 40, 0.05); padding: 30px; border-radius: 10px; border: 1px solid var(--error); margin-top: 30px; color: var(--error); }
 
-        .input-group input { 
-            padding: 15px; font-size: 1.2rem; border-radius: 4px; border: 1px solid #444; width: 350px; 
-            text-align: center; background: #000; color: #fff; margin-bottom: 20px; font-family: 'Tajawal';
-        }
+        .input-group input { padding: 15px; font-size: 1.2rem; border-radius: 4px; border: 1px solid #444; width: 350px; text-align: center; background: #000; color: #fff; margin-bottom: 20px; font-family: 'Tajawal'; }
         .input-group input:focus { outline: none; border-color: var(--gold); }
 
-        /* --- تصميم الشهادة الاحترافي --- */
+        /* --- الشهادة --- */
         #certificate-display { display: none; margin-top: 50px; text-align: center; }
-        
-        .cert-paper { 
-            position: relative; width: 100%; max-width: 1000px; height: 750px; margin: 0 auto; 
-            background: #fff; color: #1a1a1a; padding: 20px; 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-            overflow: hidden;
-        }
-
-        .cert-bg-pattern {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('https://www.transparenttextures.com/patterns/gplay.png');
-            opacity: 0.4; z-index: 0;
-        }
-        
-        .cert-frame-outer {
-            border: 10px solid #1a1a1a;
-            height: 100%; padding: 5px; position: relative; z-index: 1;
-        }
-        
-        .cert-frame-inner {
-            border: 3px solid var(--gold);
-            height: 100%; padding: 40px;
-            position: relative;
-            background: radial-gradient(circle, #fff 40%, #f9f9f9 100%);
-        }
-
-        .c-corner {
-            position: absolute; width: 50px; height: 50px;
-            border-style: double; border-color: var(--gold); border-width: 0;
-        }
+        .cert-paper { position: relative; width: 100%; max-width: 1000px; height: 750px; margin: 0 auto; background: #fff; color: #1a1a1a; padding: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.8); overflow: hidden; }
+        .cert-bg-pattern { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://www.transparenttextures.com/patterns/gplay.png'); opacity: 0.4; z-index: 0; }
+        .cert-frame-outer { border: 10px solid #1a1a1a; height: 100%; padding: 5px; position: relative; z-index: 1; }
+        .cert-frame-inner { border: 3px solid var(--gold); height: 100%; padding: 40px; position: relative; background: radial-gradient(circle, #fff 40%, #f9f9f9 100%); }
+        .c-corner { position: absolute; width: 50px; height: 50px; border-style: double; border-color: var(--gold); border-width: 0; }
         .c-tl { top: 10px; left: 10px; border-top-width: 6px; border-left-width: 6px; }
         .c-tr { top: 10px; right: 10px; border-top-width: 6px; border-right-width: 6px; }
         .c-bl { bottom: 10px; left: 10px; border-bottom-width: 6px; border-left-width: 6px; }
         .c-br { bottom: 10px; right: 10px; border-bottom-width: 6px; border-right-width: 6px; }
-
         .cert-header { margin-bottom: 20px; border-bottom: 2px solid var(--gold); padding-bottom: 10px; display: inline-block; width: 80%; }
         .cert-title-en { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #1a1a1a; letter-spacing: 5px; font-weight: 700; margin: 0; }
         .cert-title-ar { font-family: 'Amiri', serif; font-size: 2.2rem; color: var(--primary); margin-top: -10px; }
-
-        .cert-body { margin: 30px 0; }
-        .cert-text-sm { font-family: 'Cinzel', serif; font-size: 1rem; color: #555; text-transform: uppercase; letter-spacing: 2px; }
-        .student-name { 
-            font-family: 'Amiri', serif; /* خط عربي للأسماء العربية */
-            font-size: 3.5rem; color: #000; margin: 15px 0; 
-            font-weight: bold; text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
-        }
-        .cert-desc { font-family: 'Amiri', serif; font-size: 1.4rem; color: #333; line-height: 1.6; max-width: 80%; margin: 0 auto; }
-        
-        .cert-grade-box {
-            margin: 30px auto; border: 1px solid var(--gold); padding: 10px 40px; display: inline-block;
-            background: linear-gradient(to right, #fff, #fcfcfc);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
+        .student-name { font-family: 'Amiri', serif; font-size: 3.5rem; color: #000; margin: 15px 0; font-weight: bold; text-shadow: 1px 1px 0px rgba(0,0,0,0.1); }
+        .cert-grade-box { margin: 30px auto; border: 1px solid var(--gold); padding: 10px 40px; display: inline-block; background: linear-gradient(to right, #fff, #fcfcfc); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         .grade-value { font-family: 'Cinzel', serif; font-size: 2rem; color: var(--primary); font-weight: bold; }
-
         .cert-footer { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 60px; padding: 0 50px; }
         .seal-container { position: relative; width: 140px; height: 140px; margin: 0 auto; }
         .gold-seal-img { width: 100%; height: 100%; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3)); }
-        
         .signature-block { text-align: center; width: 250px; }
-        .sig-img { height: 60px; margin-bottom: -10px; transform: rotate(-5deg); }
         .sig-line { border-bottom: 2px solid #1a1a1a; margin-bottom: 5px; }
         .sig-title { font-family: 'Cinzel', serif; font-size: 0.8rem; font-weight: bold; color: var(--primary); }
 
@@ -231,7 +128,7 @@
     <div id="start-screen">
         <i class="fas fa-balance-scale hero-icon" style="font-size: 4rem; color:var(--gold); margin-bottom:20px;"></i>
         <h1 class="hero-title">اختبار الكفاءة المهنية المتقدم</h1>
-        <span class="quran-quote">﴿إِنَّ خَيْرَ مَنِ اسْتَأْجَرْتَ الْقَوِيُّ الْأَمِينُ﴾</span>
+        <span class="quran-quote">( وَقُلِ اعْمَلُوا فَسَيَرَى اللَّهُ عَمَلَكُمْ وَرَسُولُهُ وَالْمُؤْمِنُونَ ۖ )</span>
         <p class="hero-subtitle">
             اختبار عشوائي وشامل (40 سؤالاً) من الكتاب المقرر (ص 92-162).<br>
             <span style="color:var(--primary); font-weight:bold; background:rgba(255,255,255,0.1); padding:5px 10px; border-radius:4px;">شرط الاجتياز: 25 درجة من 50</span>
@@ -257,26 +154,19 @@
                 <div class="stat-label">STATUS</div>
             </div>
         </div>
-
         <div style="max-width:350px; margin:0 auto;"><canvas id="chart"></canvas></div>
-        
         <button class="btn" style="background:#222; border:1px solid #444; margin:30px 0; font-size:1rem;" onclick="reviewAnswers()">مراجعة الإجابات التفصيلية</button>
 
         <div id="fail-message-area">
             <i class="fas fa-times-circle fa-3x" style="margin-bottom:15px;"></i><br>
             <span style="font-size:1.4rem; font-weight:bold;">عذراً، لم تجتز الاختبار</span><br><br>
-            لقد حصلت على أقل من 25 درجة.<br>
-            حاول التركيز أكثر في المرة القادمة.<br>
-            <br>
+            لقد حصلت على أقل من 25 درجة. حاول التركيز أكثر في المرة القادمة.<br>
             <button class="btn" onclick="location.reload()" style="font-size:1rem; padding:10px 30px;">إعادة المحاولة</button>
         </div>
 
         <div id="certificate-input-area">
-            <div style="text-align:center; margin-bottom:20px;">
-                <i class="fas fa-certificate fa-3x" style="color:var(--gold);"></i>
-            </div>
             <h3 style="color:var(--gold); margin-bottom:10px;">تهانينا! أنت مؤهل للحصول على الشهادة</h3>
-            <p style="color:#ccc; margin-bottom:20px; font-size:0.95rem;">يرجى كتابة الاسم الثلاثي (باللغة العربية أو الإنجليزية) كما تريد أن يظهر في الوثيقة الرسمية.</p>
+            <p style="color:#ccc; margin-bottom:20px; font-size:0.95rem;">يرجى كتابة الاسم الثلاثي كما تريد أن يظهر في الوثيقة الرسمية.</p>
             <div class="input-group">
                 <input type="text" id="studentName" placeholder="الاسم الكامل هنا..." autocomplete="off">
                 <br>
@@ -291,64 +181,47 @@
                     <div class="cert-frame-inner">
                         <div class="c-corner c-tl"></div><div class="c-corner c-tr"></div>
                         <div class="c-corner c-bl"></div><div class="c-corner c-br"></div>
-
                         <div class="cert-header">
                             <h1 class="cert-title-en">CERTIFICATE</h1>
                             <h2 class="cert-title-ar">شهادة كفاءة مهنية</h2>
                         </div>
-
                         <div class="cert-body">
                             <div class="cert-text-sm">THIS IS TO CERTIFY THAT</div>
-                            <div class="cert-text-ar">تشهد إدارة الاختبارات بأن</div>
-                            
                             <div class="student-name" id="cert-name">Student Name</div>
-                            
                             <div class="cert-desc">
-                                Has successfully completed the comprehensive examination in <strong>Professional Ethics</strong> based on the approved curriculum (Units 8-12), demonstrating mastery of Islamic management principles.
-                                <br>
-                                قد أتم بنجاح الاختبار الشامل في <strong>أخلاقيات المهنة</strong> (الوحدات 8-12) وأظهر إتقاناً للمفاهيم الإدارية الشرعية.
+                                قد أتم بنجاح الاختبار المتقدم في <strong>أخلاقيات المهنة</strong> (الوحدات 8-12) وأظهر إتقاناً للمفاهيم الإدارية الشرعية.
                             </div>
-
                             <div class="cert-grade-box">
                                 <div class="grade-label">FINAL GRADE / الدرجة النهائية</div>
                                 <div class="grade-value"><span id="cert-score-final"></span> / 50</div>
                             </div>
                         </div>
-
                         <div class="cert-footer">
                             <div class="signature-block">
                                 <div class="sig-date" id="cert-date">DD/MM/YYYY</div>
                                 <div class="sig-line"></div>
                                 <div class="sig-title">DATE / التاريخ</div>
                             </div>
-
                             <div class="seal-container">
                                 <svg viewBox="0 0 100 100" class="gold-seal-img">
                                     <circle cx="50" cy="50" r="45" fill="#C5A059" stroke="#7A5C1F" stroke-width="2"/>
-                                    <circle cx="50" cy="50" r="38" fill="none" stroke="#7A5C1F" stroke-width="1" stroke-dasharray="2,2"/>
-                                    <path d="M50 15 L55 35 L75 35 L60 50 L65 70 L50 55 L35 70 L40 50 L25 35 L45 35 Z" fill="#997B30" opacity="0.3"/>
                                     <text x="50" y="55" font-family="serif" font-size="12" font-weight="bold" fill="#3d2b05" text-anchor="middle">PASSED</text>
-                                    <text x="50" y="75" font-family="serif" font-size="6" fill="#3d2b05" text-anchor="middle">PROFESSIONAL</text>
                                 </svg>
                             </div>
-
                             <div class="signature-block">
-                                <div class="sig-img" style="font-family:'Great Vibes'; font-size:2rem; color:#000;">Director.</div>
+                                <div style="font-family:'Great Vibes'; font-size:2rem; color:#000;">Director.</div>
                                 <div class="sig-line"></div>
-                                <div class="sig-title">DIRECTOR SIGNATURE / التوقيع</div>
+                                <div class="sig-title">DIRECTOR SIGNATURE</div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
-            <br><br>
-            <button class="btn" onclick="window.print()" style="margin-bottom:50px;">طباعة / حفظ PDF <i class="fas fa-print"></i></button>
+            <br><button class="btn" onclick="window.print()" style="margin-bottom:50px;">طباعة / حفظ PDF <i class="fas fa-print"></i></button>
         </div>
     </div>
 
     <script>
-        // دالة لخلط المصفوفة (Random Shuffle)
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -356,19 +229,15 @@
             }
         }
 
-        // بنك الأسئلة (40 سؤالاً متنوعاً)
         const db = [
-            // الوحدة 8 (الإدارة)
             { t: "الفرق الدقيق بين (التوكل) و (التواكل) هو:", opts: ["التوكل عمل بالأسباب مع اعتماد القلب، والتواكل ترك للأسباب", "كلاهما واحد", "التواكل محمود والتوكل مذموم", "ليس مما سبق"], a: "التوكل عمل بالأسباب مع اعتماد القلب، والتواكل ترك للأسباب" },
-            { t: "الآية الكريمة الدالة على معيار التوظيف (القوة والأمانة) هي:", evidence: "وردت في قصة ابنة شعيب", opts: ["﴿إِنَّ خَيْرَ مَنِ اسْتَأْجَرْتَ الْقَوِيُّ الْأَمِينُ﴾", "﴿وَأَمْرُهُمْ شُورَى بَيْنَهُمْ﴾", "﴿وَقُولُوا لِلنَّاسِ حُسْنًا﴾", "﴿يَا أَيُّهَا الَّذِينَ آمَنُوا أَوْفُوا بِالْعُقُودِ﴾"], a: "﴿إِنَّ خَيْرَ مَنِ اسْتَأْجَرْتَ الْقَوِيُّ الْأَمِينُ﴾" },
+            { t: "الآية الكريمة الدالة على معيار التوظيف (القوة والأمانة) هي:", opts: ["﴿إِنَّ خَيْرَ مَنِ اسْتَأْجَرْتَ الْقَوِيُّ الْأَمِينُ﴾", "﴿وَأَمْرُهُمْ شُورَى بَيْنَهُمْ﴾", "﴿وَقُولُوا لِلنَّاسِ حُسْنًا﴾", "﴿يَا أَيُّهَا الَّذِينَ آمَنُوا أَوْفُوا بِالْعُقُودِ﴾"], a: "﴿إِنَّ خَيْرَ مَنِ اسْتَأْجَرْتَ الْقَوِيُّ الْأَمِينُ﴾" },
             { t: "الهدف الأساسي من عملية (التنظيم) في الإدارة هو:", opts: ["منع الازدواجية وتحديد المسؤوليات", "زيادة عدد الموظفين", "تعقيد الإجراءات", "إلغاء الرقابة"], a: "منع الازدواجية وتحديد المسؤوليات" },
-            { t: "استدل المؤلف على وجوب (التخطيط والإعداد) بقوله تعالى:", evidence: "﴿وَأَعِدُّوا لَهُم مَّا اسْتَطَعْتُم مِّن قُوَّةٍ﴾", opts: ["صحيح", "خطأ"], a: "صحيح" },
+            { t: "استدل المؤلف على وجوب (التخطيط والإعداد) بقوله تعالى (وَأَعِدُّوا لَهُم مَّا اسْتَطَعْتُم مِّن قُوَّةٍ):", opts: ["صحيح", "خطأ"], a: "صحيح" },
             { t: "حديث (كلكم راع وكلكم مسؤول عن رعيته) يؤصل لمبدأ:", opts: ["المسؤولية والمحاسبة", "التفويض", "التخطيط", "التسيب"], a: "المسؤولية والمحاسبة" },
             { t: "من أخلاقيات (التوجيه) الإداري الناجح:", opts: ["الشورى وعدم الاستبداد", "القسوة والشدة", "الغموض في الأوامر", "تصيد الأخطاء"], a: "الشورى وعدم الاستبداد" },
-            { t: "الرقابة الذاتية تعني:", opts: ["استشعار مراقبة الله في السر والعلن", "انتظار المشرف", "الرقابة الإلكترونية", "التقارير اليومية"], a: "استشعار مراقبة الله في السر والعلن" },
-            { t: "حديث أبي ذر (يا أبا ذر، إنك ضعيف، وإنها أمانة) يدل على:", opts: ["أهمية القوة والكفاءة في الإدارة", "فضل الضعف", "منع أبي ذر من الخير", "كراهية الإمارة مطلقاً"], a: "أهمية القوة والكفاءة في الإدارة" },
-
-            // الوحدة 9 (النماذج)
+            { t: "الرقابة الذاتية تعني:", opts: ["استشعار مراقبة الله في السر والعلن", "انتظار المشرف لمراقبة العمل", "الرقابة الإلكترونية", "التقارير اليومية"], a: "استشعار مراقبة الله في السر والعلن" },
+            { t: "حديث أبي ذر (يا أبا ذر، إنك ضعيف، وإنها أمانة) يدل على:", opts: ["أهمية القوة والكفاءة في الإدارة", "فضل الضعف", "منع أبي ذر من الخير", "كراهية الإمارة"], a: "أهمية القوة والكفاءة في الإدارة" },
             { t: "مؤلف كتاب 'تذكرة السامع والمتكلم في أدب العالم والمتعلم' هو:", opts: ["ابن جماعة", "ابن رضوان", "الماوردي", "ابن تيمية"], a: "ابن جماعة" },
             { t: "من آداب المعلم التي ذكرها ابن جماعة:", opts: ["قول 'لا أدري' لما لا يعلم", "التكبر على الطلاب", "كتمان العلم", "استخدام العلم لجمع المال"], a: "قول 'لا أدري' لما لا يعلم" },
             { t: "الحديث الدال على تحريم كتمان العلم هو:", opts: ["(من سُئل عن علم فكتمه ألجمه الله بلجام من نار)", "(طلب العلم فريضة)", "(العلماء ورثة الأنبياء)", "ليس مما سبق"], a: "(من سُئل عن علم فكتمه ألجمه الله بلجام من نار)" },
@@ -376,9 +245,7 @@
             { t: "القاعدة الفقهية المتعلقة بمسؤولية الطبيب الجاهل:", opts: ["من تطبب ولم يُعلم منه طب فهو ضامن", "لا ضرر ولا ضرار", "اليقين لا يزول بالشك", "الضرورات تبيح المحظورات"], a: "من تطبب ولم يُعلم منه طب فهو ضامن" },
             { t: "التعريف الاصطلاحي للحسبة هو:", opts: ["الأمر بالمعروف إذا ظهر تركه والنهي عن المنكر إذا ظهر فعله", "القضاء بين الناس", "جمع الزكاة", "حراسة الحدود"], a: "الأمر بالمعروف إذا ظهر تركه والنهي عن المنكر إذا ظهر فعله" },
             { t: "من مهام المحتسب في الجانب (المدني):", opts: ["مراقبة الطرق والأبنية", "مراقبة الصلاة", "فحص المكاييل", "علاج المرضى"], a: "مراقبة الطرق والأبنية" },
-            { t: "الدليل القرآني على مشروعية الحسبة:", evidence: "﴿وَلْتَكُن مِّنكُمْ أُمَّةٌ يَدْعُونَ إِلَى الْخَيْرِ...﴾", opts: ["صحيح", "خطأ"], a: "صحيح" },
-
-            // الوحدة 10 (الميثاق)
+            { t: "الدليل القرآني على مشروعية الحسبة:", opts: ["﴿وَلْتَكُن مِّنكُمْ أُمَّةٌ يَدْعُونَ إِلَى الْخَيْرِ...﴾", "صحيح، هذه هي الآية", "خطأ"], a: "صحيح، هذه هي الآية" },
             { t: "تنص المادة (3) من ميثاق التعليم على أن التعليم:", opts: ["رسالة تستمد أخلاقياتها من العقيدة", "وظيفة حكومية", "مهنة للكسب", "خدمة تطوعية"], a: "رسالة تستمد أخلاقياتها من العقيدة" },
             { t: "المادة (4) تؤكد أن المعلم:", opts: ["قدوة ويدرك أن الله رقيبه", "مسؤول عن المبنى المدرسي", "يجب أن يكون صارماً", "يقتصر دوره على الفصل"], a: "قدوة ويدرك أن الله رقيبه" },
             { t: "الحديث: (إنما بعثت لأتمم مكارم الأخلاق) يدل على:", opts: ["أهمية الأخلاق كغاية للرسالة", "أهمية العبادات فقط", "أهمية الجهاد", "أهمية التجارة"], a: "أهمية الأخلاق كغاية للرسالة" },
@@ -387,8 +254,6 @@
             { t: "المعلم شريك للوالدين في التربية. هذا مضمون المادة:", opts: ["المادة الثامنة (8)", "المادة الأولى", "المادة الثالثة", "المادة العاشرة"], a: "المادة الثامنة (8)" },
             { t: "من صفات المعلم في الميثاق:", opts: ["المسلم الوسطي المعتدل", "المتشدد", "المنعزل", "المتساهل"], a: "المسلم الوسطي المعتدل" },
             { t: "الميثاق الأخلاقي هو:", opts: ["عهد ومواثيق سلوكية", "قانون عقوبات", "لائحة رواتب", "خطة دراسية"], a: "عهد ومواثيق سلوكية" },
-
-            // الوحدة 11 (الترسيخ)
             { t: "الوسيلة الأولى (الذاتية) لترسيخ الأخلاق هي:", opts: ["تنمية الرقابة الذاتية (مقام الإحسان)", "اللوائح الصارمة", "المكافآت المالية", "العقوبات"], a: "تنمية الرقابة الذاتية (مقام الإحسان)" },
             { t: "الدليل القرآني على الرقابة الذاتية:", opts: ["﴿أَلَمْ يَعْلَمْ بِأَنَّ اللَّهَ يَرَى﴾", "﴿وَأَقِيمُوا الصَّلَاةَ﴾", "﴿وَآتُوا الزَّكَاةَ﴾", "﴿كُتِبَ عَلَيْكُمُ الصِّيَامُ﴾"], a: "﴿أَلَمْ يَعْلَمْ بِأَنَّ اللَّهَ يَرَى﴾" },
             { t: "معنى (تصحيح الفهم) كوسيلة للترسيخ:", opts: ["اعتبار الوظيفة عبادة وطاعة لله", "تعلم القراءة", "فهم القانون", "تصحيح الأخطاء اللغوية"], a: "اعتبار الوظيفة عبادة وطاعة لله" },
@@ -397,8 +262,6 @@
             { t: "حديث (إن الله يحب إذا عمل أحدكم عملاً أن يتقنه) يدل على:", opts: ["وجوب الإتقان والجودة", "السرعة في العمل", "ترك العمل", "العمل التطوعي فقط"], a: "وجوب الإتقان والجودة" },
             { t: "من الوسائل الإدارية لترسيخ الأخلاق:", opts: ["التقييم المستمر", "الدعاء", "النوايا الحسنة", "التمني"], a: "التقييم المستمر" },
             { t: "العدالة في توزيع الحوافز تؤدي إلى:", opts: ["الرضا الوظيفي", "الحسد", "الكسل", "الفوضى"], a: "الرضا الوظيفي" },
-
-            // الوحدة 12 (المخالفات)
             { t: "الفساد الإداري هو:", opts: ["استغلال السلطة لتحقيق مصالح خاصة", "تطبيق النظام", "تحقيق الأرباح", "فشل المشروع"], a: "استغلال السلطة لتحقيق مصالح خاصة" },
             { t: "حكم الرشوة في الإسلام:", opts: ["محرمة وملعون فاعلها", "مكروهة", "جائزة للضرورة", "مستحبة"], a: "محرمة وملعون فاعلها" },
             { t: "الحديث الدال على تحريم هدايا الموظفين:", opts: ["(هدايا العمال غلول)", "(تهادوا تحابوا)", "(الهدية لا ترد)", "(نعم المال الصالح)"], a: "(هدايا العمال غلول)" },
@@ -415,29 +278,13 @@
             document.getElementById('start-screen').style.display = 'none';
             document.getElementById('quiz-screen').style.display = 'block';
             let html = '';
-            
-            // خلط الخيارات في كل سؤال
-            db.forEach(q => shuffleArray(q.opts));
-
+            shuffleArray(db);
             db.forEach((q, i) => {
-                let evidenceHtml = q.evidence ? `<div class="evidence-text">${q.evidence}</div>` : '';
-                html += `<div class="question-card">
-                    <div class="q-badge">سؤال ${i+1}</div>
-                    <div class="q-text">${q.t}</div>
-                    ${evidenceHtml}
-                    <div>`;
-                
+                shuffleArray(q.opts);
+                html += `<div class="question-card"><div class="q-badge">سؤال ${i+1}</div><div class="q-text">${q.t}</div><div>`;
                 q.opts.forEach((opt, idx) => {
-                    html += `
-                    <div class="option-container">
-                        <input type="radio" id="q${i}_opt${idx}" name="q${i}" value="${opt}">
-                        <label class="option-label" for="q${i}_opt${idx}">
-                            <span class="option-icon"></span>
-                            ${opt}
-                        </label>
-                    </div>`;
+                    html += `<div class="option-container"><input type="radio" id="q${i}_opt${idx}" name="q${i}" value="${opt}"><label class="option-label" for="q${i}_opt${idx}"><span class="option-icon"></span>${opt}</label></div>`;
                 });
-
                 html += `</div></div>`;
             });
             document.getElementById('questions-container').innerHTML = html;
@@ -447,38 +294,22 @@
         function submitQuiz() {
             let score = 0;
             let correct = 0, wrong = 0;
-            
             db.forEach((q, i) => {
                 const inputs = document.getElementsByName(`q${i}`);
                 let userVal = null;
-                
                 inputs.forEach(inp => {
                     if(inp.checked) userVal = inp.value;
-                    inp.disabled = true; // قفل بعد الإجابة
+                    inp.disabled = true;
+                    const label = inp.nextElementSibling;
+                    if(inp.value === q.a) label.classList.add('correct-style');
+                    else if(inp.checked && inp.value !== q.a) label.classList.add('wrong-style');
                 });
-
-                // تلوين الإجابات
-                inputs.forEach(inp => {
-                    const label = inp.nextElementSibling; // Label المجاور
-                    
-                    if(inp.value === q.a) {
-                        label.classList.add('correct-style'); // الإجابة الصحيحة خضراء
-                    } else if(inp.checked && inp.value !== q.a) {
-                        label.classList.add('wrong-style'); // إجابة المستخدم الخاطئة حمراء
-                    }
-                });
-
                 if(userVal === q.a) { score++; correct++; } else { wrong++; }
             });
-
-            // المعادلة: (الدرجة / 40) * 50
             finalScore = (score / 40) * 50;
-            
             document.getElementById('quiz-screen').style.display = 'none';
             document.getElementById('result-screen').style.display = 'block';
-            
             document.getElementById('score-val').innerText = finalScore.toFixed(1);
-            
             if(finalScore >= 25) {
                 document.getElementById('status-val').innerText = "ناجح";
                 document.getElementById('status-val').style.color = "#27ae60";
@@ -490,42 +321,23 @@
                 document.getElementById('certificate-input-area').style.display = 'none';
                 document.getElementById('fail-message-area').style.display = 'block';
             }
-
-            new Chart(document.getElementById('chart'), {
-                type: 'doughnut',
-                data: {
-                    labels: ['إجابات صحيحة', 'إجابات خاطئة'],
-                    datasets: [{ data: [correct, wrong], backgroundColor: ['#27ae60', '#c62828'], borderWidth:0 }]
-                }
-            });
+            new Chart(document.getElementById('chart'), { type: 'doughnut', data: { labels: ['صح', 'خطأ'], datasets: [{ data: [correct, wrong], backgroundColor: ['#27ae60', '#c62828'], borderWidth:0 }] } });
             window.scrollTo(0,0);
         }
 
-        function reviewAnswers() {
-            document.getElementById('result-screen').style.display = 'none';
-            document.getElementById('quiz-screen').style.display = 'block';
-            document.getElementById('submit-btn').style.display = 'none';
-            document.getElementById('back-results-btn').style.display = 'block';
-            window.scrollTo(0,0);
-        }
-
-        function showResults() {
-            document.getElementById('quiz-screen').style.display = 'none';
-            document.getElementById('result-screen').style.display = 'block';
-            window.scrollTo(0,0);
-        }
+        function reviewAnswers() { document.getElementById('result-screen').style.display = 'none'; document.getElementById('quiz-screen').style.display = 'block'; document.getElementById('submit-btn').style.display = 'none'; document.getElementById('back-results-btn').style.display = 'block'; window.scrollTo(0,0); }
+        function showResults() { document.getElementById('quiz-screen').style.display = 'none'; document.getElementById('result-screen').style.display = 'block'; window.scrollTo(0,0); }
 
         function generateCert() {
             const name = document.getElementById('studentName').value;
             if(!name) { alert("الرجاء كتابة الاسم"); return; }
-            
             document.getElementById('cert-name').innerText = name;
             document.getElementById('cert-score-final').innerText = finalScore.toFixed(1);
             document.getElementById('cert-date').innerText = new Date().toLocaleDateString('en-GB');
-            
             document.getElementById('certificate-display').style.display = 'block';
             setTimeout(() => document.getElementById('certificate-display').scrollIntoView({behavior:'smooth'}), 100);
         }
     </script>
 </body>
 </html>
+
