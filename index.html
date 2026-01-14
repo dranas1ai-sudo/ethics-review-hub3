@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اختبار النظم المتقدم | CIS Exam</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Amiri:wght@400;700&family=Cinzel:wght@400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>CIS Professional Exam | اختبار النظم</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Amiri:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
             --bg-dark: #050505;
-            --bg-card: #121212;
-            --primary: #ff6d00;
+            --bg-card: #141414;
+            --primary: #ff6d00; /* برتقالي */
             --text-white: #ffffff;
-            --text-gray: #b3b3b3;
+            --text-gray: #bbbbbb;
             --success: #00c853;
             --error: #d50000;
-            --gold: #c5a059;
+            --border: #333;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Tajawal', sans-serif; }
@@ -33,12 +32,12 @@
 
         /* --- البداية --- */
         #start-screen { text-align: center; margin-top: 10vh; max-width: 800px; padding: 20px; animation: fadeIn 0.8s; }
-        .hero-title { font-size: 3.5rem; color: var(--primary); margin-bottom: 5px; font-weight: 800; font-family: 'Cinzel'; }
+        .hero-title { font-size: 3.5rem; color: var(--primary); margin-bottom: 10px; font-weight: 800; font-family: 'Cinzel'; }
         
         .btn {
-            background: linear-gradient(45deg, var(--primary), #e65100);
-            color: #000; border: none; padding: 15px 60px; font-size: 1.3rem; border-radius: 5px;
-            cursor: pointer; font-weight: bold; margin-top: 20px; box-shadow: 0 5px 15px rgba(255, 109, 0, 0.3);
+            background: linear-gradient(135deg, var(--primary), #e65100);
+            color: #000; border: none; padding: 15px 70px; font-size: 1.3rem; border-radius: 50px;
+            cursor: pointer; font-weight: bold; margin-top: 20px; box-shadow: 0 5px 20px rgba(255, 109, 0, 0.3);
             transition: 0.3s;
         }
         .btn:hover { transform: translateY(-3px); color: #fff; }
@@ -47,24 +46,48 @@
         #quiz-screen { display: none; width: 95%; max-width: 900px; margin: 30px auto; }
         
         .q-card {
-            background: var(--bg-card); padding: 25px; border-radius: 8px; margin-bottom: 20px;
-            border: 1px solid #333; border-right: 5px solid var(--primary);
+            background: var(--bg-card); padding: 25px; border-radius: 12px; margin-bottom: 20px;
+            border: 1px solid var(--border); border-right: 5px solid var(--primary);
         }
         .q-text { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; color: #fff; line-height: 1.6; }
 
-        /* الرسومات البرمجية */
+        /* --- الرسومات التوضيحية (Visuals) --- */
         .visual-box {
             display: flex; justify-content: center; margin: 20px 0; background: #000; 
-            padding: 15px; border-radius: 8px; border: 1px dashed #333;
+            padding: 20px; border-radius: 8px; border: 1px dashed #444;
         }
-        
-        /* جدول إكسل */
+
+        /* 1. رسمة الرام (RAM) */
+        .ram-stick {
+            width: 200px; height: 50px; background: #004d40; border: 2px solid #00695c; 
+            position: relative; display: flex; justify-content: space-around; align-items: center;
+        }
+        .ram-chip { width: 30px; height: 30px; background: #111; border: 1px solid #555; }
+        .ram-pins { position: absolute; bottom: -5px; width: 100%; height: 5px; background: repeating-linear-gradient(90deg, gold 0, gold 2px, transparent 2px, transparent 4px); }
+        .label { position: absolute; top: -25px; color: #aaa; font-size: 0.8rem; font-family: monospace; }
+
+        /* 2. رسمة الروم (ROM) */
+        .rom-chip {
+            width: 60px; height: 60px; background: #212121; border: 2px solid #777;
+            display: flex; align-items: center; justify-content: center; color: #fff; font-family: monospace; font-size: 0.8rem;
+            position: relative;
+        }
+        .rom-leg { width: 6px; height: 10px; background: #aaa; position: absolute; }
+
+        /* 3. رسمة المعالج (CPU) */
+        .cpu-chip {
+            width: 80px; height: 80px; background: #e0e0e0; border: 2px solid #999;
+            display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        /* 4. جدول إكسل */
         .excel-sim {
-            border-collapse: collapse; background: #fff; color: #000; font-family: Arial; font-size: 0.85rem;
+            border-collapse: collapse; background: #fff; color: #000; font-family: Arial; font-size: 0.9rem;
         }
-        .excel-sim td, .excel-sim th { border: 1px solid #999; padding: 5px 10px; text-align: center; }
+        .excel-sim td, .excel-sim th { border: 1px solid #999; padding: 5px 15px; text-align: center; }
         .excel-sim th { background: #e0e0e0; }
-        .hl-cell { background: #fff176; border: 2px solid #ff6d00 !important; font-weight: bold; }
+        .hl-cell { background: #ffeb3b; border: 2px solid #ff6d00 !important; font-weight: bold; }
 
         /* الخيارات */
         .opt-row { 
@@ -79,7 +102,6 @@
 
         /* --- النتائج --- */
         #result-screen { display: none; width: 95%; max-width: 900px; margin: 30px auto; text-align: center; }
-        
         .score-box { font-size: 3rem; font-weight: 900; color: var(--primary); font-family: 'Cinzel'; margin: 20px 0; }
         
         /* مراجعة */
@@ -88,34 +110,48 @@
         .rev-wrong { border-color: var(--error); background: rgba(213, 0, 0, 0.05); }
 
         /* أزرار المشاركة */
+        .share-box { margin-top: 20px; border-top: 1px solid #333; padding-top: 15px; }
         .share-btn {
-            display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px;
-            border-radius: 50%; color: #fff; font-size: 1.5rem; margin: 0 10px; cursor: pointer; transition: 0.3s;
-            border: none;
+            display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px;
+            border-radius: 50%; color: #fff; font-size: 1.4rem; margin: 0 8px; cursor: pointer; border: none;
         }
-        .share-wa { background: #25D366; }
-        .share-li { background: #0077b5; }
-        .share-snap { background: #FFFC00; color: #000; }
-        .share-btn:hover { transform: translateY(-5px); }
+        .wa { background: #25D366; } .li { background: #0077b5; } .sn { background: #FFFC00; color: #000; }
 
         /* --- الشهادة --- */
         #cert-area { display: none; margin-top: 50px; text-align: center; }
-        /* سيتم توليد الشهادة كصورة أو PDF */
+        /* تصميم الشهادة البريطانية */
+        .cert-paper {
+            width: 100%; max-width: 1000px; height: 750px; margin: 0 auto; 
+            background: #fff; color: #1a1a1a; position: relative; padding: 40px; box-sizing: border-box;
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+        }
+        .cert-border { border: 10px solid #1a1a1a; height: 100%; padding: 5px; box-sizing: border-box; }
+        .cert-inner { 
+            border: 3px solid #c5a059; height: 100%; padding: 30px; box-sizing: border-box;
+            background: radial-gradient(circle, #fff 30%, #f4f4f4 100%); text-align: center;
+        }
+        .cert-head { font-family: 'Cinzel', serif; font-size: 3.5rem; font-weight: 700; margin-bottom: 5px; }
+        .cert-sub { font-family: 'Cinzel', serif; font-size: 1.2rem; color: #c5a059; letter-spacing: 3px; font-weight: bold; }
+        .student-name { 
+            font-family: 'Amiri', serif; font-size: 3.5rem; color: #000; 
+            margin: 20px 0; border-bottom: 1px solid #ccc; display: inline-block; padding: 0 50px;
+        }
 
         @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+        @media print { body * { visibility: hidden; } #cert-area, #cert-area * { visibility: visible; } #cert-area { position: absolute; top: 0; left: 0; width: 100%; } .btn { display: none; } }
     </style>
 </head>
 <body>
 
     <div id="start-screen">
-        <i class="fas fa-certificate" style="font-size: 4rem; color:var(--primary); margin-bottom:20px;"></i>
+        <i class="fas fa-laptop-code" style="font-size: 4rem; color:var(--primary); margin-bottom:20px;"></i>
         <h1 class="hero-title">CIS EXAM</h1>
-        <h2 style="color:#aaa;">اختبار النظم المتقدم (المحاضرة 10)</h2>
+        <h2 style="color:#aaa;">اختبار النظم المتقدم (المراجعة النهائية)</h2>
         
         <div style="background:#111; padding:20px; border-radius:8px; border:1px solid #333; margin: 30px 0;">
             <p>📌 الأسئلة: <strong>40</strong> | 🎓 الدرجة: <strong>50</strong></p>
             <p>✅ النجاح: <strong>25 درجة فأكثر</strong></p>
-            <p>🌍 الترجمة: الأسئلة والخيارات (عربي / إنجليزي)</p>
+            <p>📝 نوعية الأسئلة: سيناريوهات عملية + مفاهيم (بدون حفظ أرقام الشرائح).</p>
         </div>
 
         <button class="btn" onclick="startQuiz()">ابدأ الاختبار</button>
@@ -123,27 +159,26 @@
 
     <div id="quiz-screen">
         <div id="q-container"></div>
-        <button class="btn" style="width:100%;" onclick="finishQuiz()">تسليم الإجابات</button>
+        <button class="btn" style="width:100%; margin-top:20px;" onclick="finishQuiz()">تسليم الإجابات</button>
     </div>
 
     <div id="result-screen">
         <h2 style="font-family:'Cinzel'; color:var(--primary);">FINAL RESULT</h2>
         <div class="score-box"><span id="score-val">0</span> <span style="font-size:1.5rem; color:#666;">/ 50</span></div>
-        
         <div id="status-msg" style="font-size:1.5rem; font-weight:bold; margin-bottom:30px;"></div>
 
-        <div id="cert-input" style="display:none; background:#111; padding:30px; border-radius:8px; border:1px solid var(--primary); animation: fadeIn 0.5s;">
-            <h3 style="color:#fff;">إصدار الشهادة الاحترافية</h3>
-            <p style="color:#aaa; margin-bottom:15px;">اكتب اسمك الثلاثي ليظهر في الشهادة:</p>
-            <input type="text" id="stdName" placeholder="الاسم الكامل" style="padding:10px; width:70%; text-align:center; font-size:1.1rem; margin-bottom:15px; border-radius:5px; border:none;">
+        <div id="cert-input" style="display:none; background:#111; padding:30px; border-radius:8px; border:1px solid var(--primary);">
+            <h3 style="color:#fff;">Congratulations!</h3>
+            <p style="color:#ccc;">أنت مؤهل للحصول على الشهادة.</p>
+            <input type="text" id="stdName" placeholder="الاسم الكامل (لإصدار الشهادة)" style="padding:10px; width:70%; text-align:center; font-size:1.1rem; margin:15px 0; border-radius:5px;">
             <br>
             <button class="btn" style="padding:10px 40px;" onclick="generateCert()">إصدار الشهادة</button>
             
-            <div style="margin-top:20px;">
-                <p style="color:#ccc; margin-bottom:10px;">شارك نتيجتك:</p>
-                <button class="share-btn share-wa" onclick="share('wa')"><i class="fab fa-whatsapp"></i></button>
-                <button class="share-btn share-li" onclick="share('li')"><i class="fab fa-linkedin-in"></i></button>
-                <button class="share-btn share-snap" onclick="share('snap')"><i class="fab fa-snapchat-ghost"></i></button>
+            <div class="share-box">
+                <p style="color:#888; font-size:0.9rem;">شارك نتيجتك:</p>
+                <button class="share-btn wa" onclick="share('wa')"><i class="fab fa-whatsapp"></i></button>
+                <button class="share-btn li" onclick="share('li')"><i class="fab fa-linkedin-in"></i></button>
+                <button class="share-btn sn" onclick="share('sn')"><i class="fab fa-snapchat-ghost"></i></button>
             </div>
         </div>
 
@@ -151,53 +186,49 @@
         <div id="review-box" style="display:none; margin-top:30px;"></div>
     </div>
 
-    <div id="cert-hidden" style="position:fixed; top:-9999px; left:-9999px;">
-        <div id="cert-content" style="width:1122px; height:793px; padding:40px; background:#fff; color:#000; position:relative; font-family:'Times New Roman', serif;">
-            <div style="border:10px solid #1a1a1a; height:100%; padding:5px;">
-                <div style="border:3px solid #c5a059; height:100%; padding:40px; background:radial-gradient(circle, #fff 40%, #f9f7f1 100%); text-align:center; position:relative;">
-                    <div style="margin-bottom:20px;">
-                        <i class="fas fa-crown" style="font-size:4rem; color:#1a1a1a;"></i>
-                        <div style="font-family:'Cinzel'; font-size:1.5rem; color:#c5a059; font-weight:bold; letter-spacing:3px; margin-top:10px;">STARDOM UNIVERSITY</div>
+    <div id="cert-area">
+        <div class="cert-paper">
+            <div class="cert-border">
+                <div class="cert-inner">
+                    <div style="text-align:center;">
+                        <i class="fas fa-crown fa-3x" style="color:#1a1a1a;"></i>
+                        <div class="cert-head">Certificate of Achievement</div>
+                        <div class="cert-sub">STARDOM UNIVERSITY</div>
                     </div>
 
-                    <div style="font-family:'Cinzel'; font-size:3.5rem; font-weight:700; margin-bottom:10px;">CERTIFICATE</div>
-                    <div style="font-family:'Pinyon Script'; font-size:2rem; color:#666;">Of Achievement</div>
-
-                    <div style="margin:40px 0;">
-                        <p style="font-size:1.2rem; color:#555; font-style:italic;">This is to certify that</p>
-                        <h1 id="print-name" style="font-family:'Amiri'; font-size:3.5rem; color:#b8860b; margin:10px 0; border-bottom:1px solid #ccc; display:inline-block; padding:0 50px;">Student Name</h1>
-                        <p style="font-size:1.2rem; color:#555; font-style:italic; margin-top:10px;">Has successfully passed the advanced examination in</p>
-                        <h2 style="font-family:'Cinzel'; font-size:2rem; color:#1a1a1a; margin-top:15px;">Computer Information Systems</h2>
-                        <p style="font-family:'Amiri'; font-size:1.4rem; color:#444;">مقدمة في نظم المعلومات الحاسوبية</p>
-                    </div>
-
-                    <div style="margin-top:30px; font-family:'Cinzel'; font-weight:bold; font-size:1.5rem; color:#1a1a1a;">
-                        Grade: <span id="print-grade" style="color:#b8860b;"></span> / 50
-                    </div>
-
-                    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:60px; padding:0 80px;">
-                        <div style="text-align:center;">
-                            <div id="print-date" style="font-weight:bold; font-family:'Cinzel';"></div>
-                            <div style="border-top:1px solid #000; width:200px; margin-top:5px; font-size:0.8rem;">DATE OF ISSUE</div>
+                    <div style="margin:50px 0; text-align:center;">
+                        <p style="font-family:'Times New Roman'; font-style:italic; font-size:1.3rem; color:#555;">This is to certify that</p>
+                        <div class="student-name" id="cert-name">Student Name</div>
+                        
+                        <p style="font-family:'Times New Roman'; font-style:italic; font-size:1.2rem; color:#555; margin-top:10px;">Has successfully passed the advanced examination in</p>
+                        <h2 style="font-family:'Cinzel'; font-size:2rem; color:#1a1a1a; margin-top:10px;">Computer Information Systems</h2>
+                        <p style="font-family:'Amiri'; font-size:1.3rem; color:#444;">مقدمة في نظم المعلومات الحاسوبية</p>
+                        
+                        <div style="margin-top:30px; font-family:'Cinzel'; font-weight:bold; font-size:1.3rem;">
+                            GRADE: <span id="final-grade" style="color:#c5a059;"></span> / 50
                         </div>
-                        <div style="text-align:center;">
-                            <div style="width:120px; height:120px; background:#b8860b; border-radius:50%; color:#fff; display:flex; flex-direction:column; justify-content:center; align-items:center; box-shadow:0 0 0 5px #fff, 0 0 0 7px #b8860b;">
-                                <i class="fas fa-check-circle fa-2x"></i>
-                                <div style="font-size:0.7rem; font-weight:bold; margin-top:5px; font-family:'Cinzel';">VERIFIED</div>
-                            </div>
+                    </div>
+
+                    <div style="display:flex; justify-content:space-between; align-items:flex-end; padding:0 60px; margin-top:80px;">
+                        <div style="text-align:center; width:200px;">
+                            <div id="c-date" style="font-family:'Cinzel'; font-weight:bold;"></div>
+                            <div style="border-top:1px solid #000; font-size:0.8rem; margin-top:5px;">DATE</div>
                         </div>
-                        <div style="text-align:center;">
+                        <div style="width:120px; height:120px; background:linear-gradient(45deg, #c5a059, #e6b800); border-radius:50%; display:flex; justify-content:center; align-items:center; color:#fff; box-shadow:0 0 0 5px #fff, 0 0 0 8px #c5a059;">
+                            <i class="fas fa-award fa-2x"></i>
+                        </div>
+                        <div style="text-align:center; width:200px;">
                             <div style="font-family:'Pinyon Script'; font-size:2rem;">Dr. Aymen Oglu</div>
-                            <div style="border-top:1px solid #000; width:200px; margin-top:5px; font-size:0.8rem;">INSTRUCTOR</div>
+                            <div style="border-top:1px solid #000; font-size:0.8rem; margin-top:5px;">INSTRUCTOR</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <br><button class="btn" onclick="window.print()">طباعة / حفظ PDF</button>
     </div>
 
     <script>
-        // خلط المصفوفة
         function shuffle(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -205,65 +236,64 @@
             }
         }
 
-        // الرسومات البرمجية
-        const vRAM = `<div class="visual-box"><div style="color:#fff; font-family:monospace;">[||||||||||||] RAM Stick</div></div>`;
-        const vROM = `<div class="visual-box"><div style="color:#fff; font-family:monospace;">[ BIOS CHIP ]</div></div>`;
+        // الرسومات البرمجية (CSS Visuals)
+        const vRAM = `<div class="visual-box"><div class="ram-stick"><div class="label">RAM</div><div class="ram-chip"></div><div class="ram-chip"></div><div class="ram-chip"></div><div class="ram-pins"></div></div></div>`;
+        const vROM = `<div class="visual-box"><div class="rom-chip"><div class="label" style="top:-20px; color:#fff;">ROM</div>BIOS<div class="rom-leg" style="top:-8px;left:10px"></div><div class="rom-leg" style="top:-8px;right:10px"></div><div class="rom-leg" style="bottom:-8px;left:10px"></div><div class="rom-leg" style="bottom:-8px;right:10px"></div></div></div>`;
+        const vCPU = `<div class="visual-box"><div class="cpu-chip">CPU</div></div>`;
+        const vExcelAvg = `<div class="visual-box"><table class="excel-sim"><tr><th>A</th></tr><tr><td>10</td></tr><tr><td>20</td></tr><tr><td>30</td></tr></table></div>`;
+        const vExcelCalc = `<div class="visual-box"><table class="excel-sim"><tr><th>F</th></tr><tr><td class="hl-cell">100</td></tr></table></div>`;
 
-        // بنك الأسئلة (40 سؤال - عربي/إنجليزي - مصحح 100%)
+        // بنك الأسئلة (40 سؤال - سيناريوهات عملية + مفاهيم)
         const db = [
-            // Hardware & Concepts
-            { t: "ما هي الذاكرة التي تفقد بياناتها عند انقطاع الكهرباء؟", v: vRAM, opts: ["RAM - الذاكرة العشوائية", "ROM - ذاكرة القراءة فقط", "HDD - القرص الصلب", "Flash - فلاش"], a: "RAM - الذاكرة العشوائية" },
-            { t: "الذاكرة التي تحتوي على BIOS ولا تفقد بياناتها تسمى:", v: vROM, opts: ["ROM - ذاكرة القراءة فقط", "RAM - الذاكرة العشوائية", "Cache - الذاكرة المخبأة", "Register - مسجل"], a: "ROM - ذاكرة القراءة فقط" },
-            { t: "الجزء الذي يعتبر 'عقل الحاسوب' ويقوم بالمعالجة:", opts: ["CPU - وحدة المعالجة المركزية", "GPU - كرت الشاشة", "PSU - مزود الطاقة", "Case - الصندوق"], a: "CPU - وحدة المعالجة المركزية" },
-            { t: "القطعة التي تربط جميع مكونات الحاسوب معاً:", opts: ["Motherboard - اللوحة الأم", "Screen - الشاشة", "Keyboard - لوحة المفاتيح", "Mouse - الماوس"], a: "Motherboard - اللوحة الأم" },
-            { t: "تعريف الحاسوب (Computer) هو:", opts: ["Device for storage and processing - جهاز للتخزين والمعالجة", "Printing device - جهاز طباعة", "Calculator - آلة حاسبة", "Screen - شاشة"], a: "Device for storage and processing - جهاز للتخزين والمعالجة" },
-            { t: "أي مما يلي يعتبر برمجيات نظام؟", opts: ["Operating System - نظام التشغيل", "MS Word - وورد", "Games - ألعاب", "Chrome - متصفح"], a: "Operating System - نظام التشغيل" },
-            { t: "الماسح الضوئي (Scanner) هو وحدة:", opts: ["Input - إدخال", "Output - إخراج", "Processing - معالجة", "Storage - تخزين"], a: "Input - إدخال" },
-            { t: "الشاشة (Monitor) هي وحدة:", opts: ["Output - إخراج", "Input - إدخال", "Processing - معالجة", "Memory - ذاكرة"], a: "Output - إخراج" },
+            // Hardware Visuals
+            { t: "الصورة أدناه تمثل الذاكرة التي تفقد بياناتها عند انقطاع الكهرباء:", v: vRAM, opts: ["RAM - الذاكرة العشوائية", "ROM - ذاكرة القراءة فقط", "HDD - القرص الصلب", "Flash - فلاش"], a: "RAM - الذاكرة العشوائية" },
+            { t: "هذا العنصر هو 'عقل الحاسوب' المسؤول عن العمليات الحسابية:", v: vCPU, opts: ["CPU - وحدة المعالجة المركزية", "GPU - كرت الشاشة", "PSU - الطاقة", "Case - الصندوق"], a: "CPU - وحدة المعالجة المركزية" },
+            { t: "القطعة الإلكترونية التي تحتوي على برنامج BIOS وتظهر بالشكل:", v: vROM, opts: ["ROM - ذاكرة القراءة فقط", "RAM - الذاكرة العشوائية", "Cache - كاش", "Register - مسجل"], a: "ROM - ذاكرة القراءة فقط" },
             
-            // Excel (Tables included)
-            { t: "في الجدول أدناه، المعادلة لحساب المتوسط:", v: `<table class="excel-sim"><tr><th>A</th></tr><tr><td>10</td></tr><tr><td>20</td></tr><tr><td>30</td></tr></table>`, opts: ["=AVERAGE(A1:A3)", "=SUM(A1:A3)", "=MIN(A1:A3)", "=COUNT(A1:A3)"], a: "=AVERAGE(A1:A3)" },
-            { t: "إذا كانت الخلية F2 تحتوي على رقم. لحساب 3.7% منه:", v: `<table class="excel-sim"><tr><th>F</th></tr><tr><td class="hl-cell">100</td></tr></table>`, opts: ["=F2 * 3.7%", "=F2 + 3.7", "=3.7 / F2", "=SUM(F2)"], a: "=F2 * 3.7%" },
-            { t: "لحساب 6% من القيمة الصغرى (Min) في النطاق G2:", opts: ["=G2 * 6%", "=MIN(G2) + 6", "=6 / G2", "=G2 + 6%"], a: "=G2 * 6%" },
-            { t: "الدالة المستخدمة لإيجاد أقل قيمة هي:", opts: ["MIN", "LOW", "SMALL", "BOT"], a: "MIN" },
-            { t: "أي صيغة في Excel يجب أن تبدأ بـ:", opts: ["= (Equal)", "+", "#", "@"], a: "= (Equal)" },
-            { t: "تقاطع الصف مع العمود يسمى:", opts: ["Cell - خلية", "Table - جدول", "Row - صف", "Sheet - ورقة"], a: "Cell - خلية" },
+            // Excel Scenarios
+            { t: "في الجدول الموضح، المعادلة الصحيحة لحساب المتوسط (Average) هي:", v: vExcelAvg, opts: ["=AVERAGE(A1:A3)", "=SUM(A1:A3)", "=MIN(A1:A3)", "=COUNT(A1:A3)"], a: "=AVERAGE(A1:A3)" },
+            { t: "في الخلية الملونة (F2)، طُلب منك حساب 3.7% من القيمة الموجودة فيها. الصيغة هي:", v: vExcelCalc, opts: ["=F2 * 3.7%", "=F2 + 3.7", "=3.7 / F2", "=SUM(F2)"], a: "=F2 * 3.7%" },
+            { t: "لنفترض أنك تريد حساب 6% من القيمة الصغرى (Min) في الخلية G2، المعادلة ستكون:", opts: ["=G2 * 6%", "=MIN(G2) + 6", "=6 / G2", "=G2 + 6%"], a: "=G2 * 6%" },
+            { t: "الدالة التي نستخدمها لاستخراج أقل قيمة من بين مجموعة أرقام هي:", opts: ["MIN - الحد الأدنى", "LOW - منخفض", "SMALL - صغير", "BOTTOM - أسفل"], a: "MIN - الحد الأدنى" },
+            { t: "في برنامج Excel، أي معادلة رياضية يجب أن تبدأ بـ:", opts: ["= (Equal - يساوي)", "+ (Plus - زائد)", "# (Hash - هاش)", "@ (At - أت)"], a: "= (Equal - يساوي)" },
+            { t: "لتحديد صف كامل (Entire Row) في ورقة العمل، ننقر على:", opts: ["Row Number - رقم الصف", "Column Letter - حرف العمود", "Cell - الخلية", "Status Bar - شريط الحالة"], a: "Row Number - رقم الصف" },
+            { t: "التقاطع بين العمود C والصف 5 يسمى:", opts: ["Cell C5 - الخلية C5", "Table - جدول", "Sheet - ورقة", "Range - نطاق"], a: "Cell C5 - الخلية C5" },
+
+            // Word Scenarios
+            { t: "لدمج خلايا الصف الأول في جدول ليصبحوا خلية واحدة (كما في التمرين)، نستخدم:", opts: ["Merge Cells - دمج الخلايا", "Split Cells - تقسيم الخلايا", "Cut - قص", "Paste - لصق"], a: "Merge Cells - دمج الخلايا" },
+            { t: "إذا أردت تقسيم خلية واحدة إلى 10 أقسام، الأمر المناسب هو:", opts: ["Split Cells - تقسيم الخلايا", "Merge Cells - دمج الخلايا", "Delete - حذف", "Insert - إدراج"], a: "Split Cells - تقسيم الخلايا" },
+            { t: "لتغيير ارتفاع الصف (Row Height) بدقة، نذهب إلى:", opts: ["Table Properties - خصائص الجدول", "Font Size - حجم الخط", "Paragraph - فقرة", "View - عرض"], a: "Table Properties - خصائص الجدول" },
+            { t: "لإضافة إطار فني (Art Border) مثل الأشجار أو الزهور حول الصفحة، نختار:", opts: ["Page Borders - حدود الصفحة", "Page Color - لون الصفحة", "Watermark - علامة مائية", "Margins - هوامش"], a: "Page Borders - حدود الصفحة" },
+            { t: "لجعل خلفية الصفحة متدرجة بلونين (Two Colors)، نختار:", opts: ["Fill Effects - تأثيرات التعبئة", "Standard Colors - ألوان قياسية", "No Color - بلا لون", "Theme - نسق"], a: "Fill Effects - تأثيرات التعبئة" },
+            { t: "لإدراج شكل تلقائي (AutoShape) مثل الوجه الضاحك، نذهب للقائمة:", opts: ["Insert - إدراج", "Design - تصميم", "Layout - تخطيط", "View - عرض"], a: "Insert - إدراج" },
+            { t: "نوع الخط (Font) الذي طُلب استخدامه في التمرين العملي كان:", opts: ["Arial", "Times New Roman", "Calibri", "Andalus"], a: "Arial" },
+
+            // PowerPoint Scenarios
+            { t: "عند إنشاء عرض تقديمي جديد، الشريحة الأولى تكون عادة بتخطيط:", opts: ["Blank - فارغة", "Title Slide - شريحة عنوان", "Comparison - مقارنة", "Content - محتوى"], a: "Blank - فارغة" },
+            { t: "لتنفيذ المطلوب في الشريحة الثانية (عنوان ومحتوى)، نختار التخطيط:", opts: ["Title and content - عنوان ومحتوى", "Title Only - عنوان فقط", "Picture - صورة", "Blank - فارغة"], a: "Title and content - عنوان ومحتوى" },
+            { t: "لإضافة عنصر رسومي ذكي (SmartArt) في الشريحة، نستخدم قائمة:", opts: ["Insert - إدراج", "Transitions - انتقالات", "Animations - حركات", "Review - مراجعة"], a: "Insert - إدراج" },
+            { t: "لجعل العناصر داخل الشريحة تتحرك (مثل ظهور النص)، نستخدم تبويب:", opts: ["Animations - حركات", "Transitions - انتقالات", "Design - تصميم", "View - عرض"], a: "Animations - حركات" },
+            { t: "لتشغيل العرض التقديمي بملء الشاشة، نضغط المفتاح:", opts: ["F5", "F1", "Esc", "Ctrl+S"], a: "F5" },
+
+            // General & Hardware Concepts
+            { t: "اللوحة الرئيسية التي يتم توصيل الرام والمعالج بها تسمى:", opts: ["Motherboard - اللوحة الأم", "Keyboard - لوحة المفاتيح", "Screen - الشاشة", "Power Unit - وحدة الطاقة"], a: "Motherboard - اللوحة الأم" },
+            { t: "أي مما يلي يعتبر وحدة إخراج (Output Device)؟", opts: ["Monitor - الشاشة", "Scanner - الماسح الضوئي", "Microphone - الميكروفون", "Mouse - الماوس"], a: "Monitor - الشاشة" },
+            { t: "أي مما يلي يعتبر وحدة إدخال (Input Device)؟", opts: ["Scanner - الماسح الضوئي", "Printer - الطابعة", "Speaker - السماعة", "Projector - العارض"], a: "Scanner - الماسح الضوئي" },
+            { t: "تعريف الحاسوب (Computer) الدقيق هو:", opts: ["Electronic device for storage and processing - جهاز إلكتروني للتخزين والمعالجة", "Typing machine - آلة كاتبة", "Printing device - جهاز طباعة", "Calculator - آلة حاسبة"], a: "Electronic device for storage and processing - جهاز إلكتروني للتخزين والمعالجة" },
+            { t: "أي مما يلي يعتبر (System Software)؟", opts: ["Operating System - نظام التشغيل", "Word - وورد", "Excel - إكسل", "Game - لعبة"], a: "Operating System - نظام التشغيل" },
+            { t: "القرص الصلب (Hard Disk) يصنف كـ:", opts: ["Secondary Storage - تخزين ثانوي", "Primary Memory - ذاكرة أولية", "Input Unit - وحدة إدخال", "Processing Unit - وحدة معالجة"], a: "Secondary Storage - تخزين ثانوي" },
+            { t: "1 Gigabyte (GB) تعادل تقريباً:", opts: ["1024 MB", "1000 KB", "100 MB", "1 TB"], a: "1024 MB" },
             
-            // Word
-            { t: "لدمج عدة خلايا في خلية واحدة نستخدم:", opts: ["Merge Cells - دمج الخلايا", "Split Cells - تقسيم الخلايا", "Cut - قص", "Copy - نسخ"], a: "Merge Cells - دمج الخلايا" },
-            { t: "لتقسيم خلية واحدة إلى عدة خلايا:", opts: ["Split Cells - تقسيم الخلايا", "Merge Cells - دمج الخلايا", "Delete - حذف", "Insert - إدراج"], a: "Split Cells - تقسيم الخلايا" },
-            { t: "لتغيير ارتفاع الصف (Row Height) نذهب إلى:", opts: ["Table Properties - خصائص الجدول", "Font - خط", "Paragraph - فقرة", "View - عرض"], a: "Table Properties - خصائص الجدول" },
-            { t: "لإضافة إطار مزخرف (Floral) للصفحة:", opts: ["Page Borders - حدود الصفحة", "Page Color - لون الصفحة", "Watermark - علامة مائية", "Print - طباعة"], a: "Page Borders - حدود الصفحة" },
-            { t: "لجعل خلفية الصفحة بلونين (Two Colors):", opts: ["Fill Effects - تأثيرات التعبئة", "More Colors - ألوان إضافية", "Standard - قياسي", "No Color - بلا لون"], a: "Fill Effects - تأثيرات التعبئة" },
-            { t: "لإدراج شكل (Shape) مثل الوجه الضاحك:", opts: ["Insert > Shapes", "View > Zoom", "File > Save", "Home > Cut"], a: "Insert > Shapes" },
-
-            // PowerPoint
-            { t: "الشريحة الأولى (Slide 1) نوع تخطيطها عادة:", opts: ["Blank - فارغ", "Title Slide - شريحة عنوان", "Content - محتوى", "Comparison - مقارنة"], a: "Blank - فارغ" },
-            { t: "الشريحة الثانية (Slide 2) نوع تخطيطها المطلوب:", opts: ["Title and content - عنوان ومحتوى", "Blank - فارغ", "Title only - عنوان فقط", "Picture - صورة"], a: "Title and content - عنوان ومحتوى" },
-            { t: "لإضافة حركة للنصوص (Animations):", opts: ["Animations - حركات", "Transitions - انتقالات", "Design - تصميم", "Review - مراجعة"], a: "Animations - حركات" },
-            { t: "الانتقال بين الشرائح يسمى:", opts: ["Transition - انتقال", "Animation - حركات", "Effect - تأثير", "Zoom - تكبير"], a: "Transition - انتقال" },
-            { t: "لتشغيل العرض (Slideshow):", opts: ["F5", "F1", "Esc", "Ctrl+S"], a: "F5" },
-            { t: "عنصر رسومي ذكي (SmartArt) يستخدم لـ:", opts: ["Visual Info - عرض المعلومات بصرياً", "Video - فيديو", "Text - نص", "Print - طباعة"], a: "Visual Info - عرض المعلومات بصرياً" },
-
-            // General Knowledge
-            { t: "امتداد ملف Excel هو:", opts: [".xlsx", ".docx", ".pptx", ".txt"], a: ".xlsx" },
-            { t: "امتداد ملف PowerPoint هو:", opts: [".pptx", ".xlsx", ".doc", ".png"], a: ".pptx" },
-            { t: "الشبكة الواسعة (الدولية) تسمى:", opts: ["WAN - شبكة واسعة", "LAN - شبكة محلية", "PAN - شبكة شخصية", "Bluetooth"], a: "WAN - شبكة واسعة" },
-            { t: "سرعة المعالج (CPU Speed) تقاس بـ:", opts: ["Hertz (Hz) - هيرتز", "Byte - بايت", "Pixel - بكسل", "Inch - بوصة"], a: "Hertz (Hz) - هيرتز" },
-            { t: "لحماية الجهاز من الفيروسات نستخدم:", opts: ["Antivirus - مضاد فيروسات", "Office - أوفيس", "Games - ألعاب", "Paint - رسام"], a: "Antivirus - مضاد فيروسات" },
-            { t: "بروتوكول تصفح الويب هو:", opts: ["HTTP", "FTP", "SMTP", "POP"], a: "HTTP" },
-            { t: "للتراجع عن خطأ (Undo) نضغط:", opts: ["Ctrl + Z", "Ctrl + C", "Ctrl + V", "Ctrl + S"], a: "Ctrl + Z" },
-            { t: "لتحديد الكل (Select All) نضغط:", opts: ["Ctrl + A", "Shift + A", "Alt + A", "Tab"], a: "Ctrl + A" },
-            { t: "محرك البحث (Search Engine) هو:", opts: ["Google", "Chrome", "Windows", "Java"], a: "Google" },
-            { t: "القرص الصلب (Hard Disk) يعتبر وحدة:", opts: ["Storage - تخزين ثانوي", "Memory - ذاكرة أساسية", "Processing - معالجة", "Input - إدخال"], a: "Storage - تخزين ثانوي" },
-            { t: "1 Gigabyte (GB) تساوي:", opts: ["1024 MB", "1000 KB", "100 MB", "1 TB"], a: "1024 MB" },
-            { t: "لتحديد صف كامل في Excel نضغط على:", opts: ["Row Number - رقم الصف", "Column Letter - حرف العمود", "Cell - الخلية", "Formula Bar - شريط الصيغة"], a: "Row Number - رقم الصف" },
-            { t: "الرمز (:) في المعادلات يعني:", opts: ["Range - نطاق/إلى", "And - و", "Divide - قسمة", "Minus - ناقص"], a: "Range - نطاق/إلى" },
-            { t: "نظام التشغيل الذي يدير الحاسوب يسمى:", opts: ["OS (Operating System)", "BIOS", "Application", "Driver"], a: "OS (Operating System)" },
-            { t: "وحدة قياس دقة الشاشة:", opts: ["Pixels - بكسل", "Inches - بوصة", "Bytes - بايت", "Hertz - هيرتز"], a: "Pixels - بكسل" },
-            { t: "زر Print Screen يستخدم لـ:", opts: ["Screenshot - تصوير الشاشة", "Print - طباعة", "Close - إغلاق", "Save - حفظ"], a: "Screenshot - تصوير الشاشة" },
-            { t: "لجعل الخط عريض (Bold):", opts: ["Ctrl + B", "Ctrl + I", "Ctrl + U", "Ctrl + P"], a: "Ctrl + B" },
-            { t: "من المشاكل الصحية لاستخدام الحاسوب:", opts: ["Eye Strain - إجهاد العين", "Fever - حمى", "Broken Bone - كسر", "None - لا شيء"], a: "Eye Strain - إجهاد العين" }
+            // Files & Network
+            { t: "امتداد الملف الافتراضي لبرنامج Excel هو:", opts: [".xlsx", ".docx", ".pptx", ".txt"], a: ".xlsx" },
+            { t: "امتداد الملف الافتراضي لبرنامج Word هو:", opts: [".docx", ".xlsx", ".pdf", ".rtf"], a: ".docx" },
+            { t: "الشبكة التي تربط أجهزة في مناطق جغرافية واسعة (مثل الدول) تسمى:", opts: ["WAN - شبكة واسعة", "LAN - شبكة محلية", "PAN - شبكة شخصية", "WLAN - لاسلكية"], a: "WAN - شبكة واسعة" },
+            { t: "وحدة قياس سرعة المعالج (CPU Speed) هي:", opts: ["Hertz (Hz) - هيرتز", "Byte - بايت", "Pixel - بكسل", "Inch - بوصة"], a: "Hertz (Hz) - هيرتز" },
+            { t: "البرنامج الذي يحمي الحاسوب من الملفات الضارة يسمى:", opts: ["Antivirus - مضاد فيروسات", "Office", "Media Player", "Browser"], a: "Antivirus - مضاد فيروسات" },
+            { t: "البروتوكول المستخدم لتصفح صفحات الإنترنت هو:", opts: ["HTTP / HTTPS", "FTP", "SMTP", "POP3"], a: "HTTP / HTTPS" },
+            { t: "للتراجع عن خطأ (Undo) أثناء الكتابة نضغط:", opts: ["Ctrl + Z", "Ctrl + C", "Ctrl + V", "Ctrl + S"], a: "Ctrl + Z" },
+            { t: "لتحديد كامل المستند (Select All) نضغط:", opts: ["Ctrl + A", "Shift + A", "Alt + A", "Tab"], a: "Ctrl + A" },
+            { t: "من الأمثلة على محركات البحث (Search Engines):", opts: ["Google - جوجل", "Chrome - كروم", "Windows - ويندوز", "Java - جافا"], a: "Google - جوجل" }
         ];
 
         let finalScore = 0;
@@ -289,7 +319,8 @@
                 
                 let html = `
                 <div class="q-card" id="q${i}">
-                    <div class="q-text">${i+1}. ${q.t}</div>
+                    <div class="q-header">QUESTION ${i+1}</div>
+                    <div class="q-text">${q.t}</div>
                     ${visualHtml}
                     <div class="opts">`;
                 
@@ -322,7 +353,7 @@
 
                 reviewHtml += `
                 <div class="review-item ${isCorrect ? 'rev-correct' : 'rev-wrong'}">
-                    <div style="color:#fff; margin-bottom:5px;">${i+1}. ${q.t}</div>
+                    <div style="color:#fff; margin-bottom:5px;">سؤال ${i+1}: ${q.t}</div>
                     <div style="color:${isCorrect?'var(--success)':'var(--error)'}">إجابتك: ${userAns}</div>
                     ${!isCorrect ? `<div style="color:#aaa;">الصحيح: ${q.a}</div>` : ''}
                 </div>`;
@@ -340,10 +371,12 @@
                 document.getElementById('status-msg').innerText = "PASSED - ناجح";
                 document.getElementById('status-msg').style.color = "var(--success)";
                 document.getElementById('cert-input').style.display = 'block';
+                document.getElementById('fail-area').style.display = 'none';
             } else {
                 document.getElementById('status-msg').innerText = "FAILED - راسب";
                 document.getElementById('status-msg').style.color = "var(--error)";
-                document.getElementById('fail-message-area').style.display = 'block';
+                document.getElementById('fail-area').style.display = 'block';
+                document.getElementById('cert-input').style.display = 'none';
             }
             window.scrollTo(0,0);
         }
@@ -355,35 +388,18 @@
 
         function generateCert() {
             let name = document.getElementById('stdName').value;
-            if(!name) { alert("الرجاء كتابة الاسم"); return; }
+            if(!name) { alert("الرجاء كتابة الاسم أولاً!"); return; }
             
-            // تعبئة بيانات الشهادة
-            document.getElementById('print-name').innerText = name;
-            document.getElementById('print-grade').innerText = finalScore.toFixed(1);
+            document.getElementById('cert-name').innerText = name;
+            document.getElementById('final-grade').innerText = finalScore.toFixed(1);
+            
             let d = new Date();
-            document.getElementById('print-date').innerText = d.toLocaleDateString('en-GB');
-
-            // فتح نافذة طباعة جديدة
-            let printWindow = window.open('', '', 'width=1200,height=900');
-            let certContent = document.getElementById('cert-hidden').innerHTML;
+            document.getElementById('c-date').innerText = d.toLocaleDateString('en-GB');
             
-            printWindow.document.write(`
-                <html><head><title>Certificate</title>
-                <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-                <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Amiri:wght@700&family=Cinzel:wght@700&family=Pinyon+Script&display=swap" rel="stylesheet">
-                <style>
-                    body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: #eee; }
-                    #cert-content { transform: scale(0.9); box-shadow: 0 0 20px rgba(0,0,0,0.5); }
-                    @media print { body { background: none; } #cert-content { transform: scale(1); box-shadow: none; width: 100%; height: 100%; page-break-after: always; } }
-                </style>
-                </head><body>
-                ${certContent}
-                <script>
-                    setTimeout(() => { window.print(); window.close(); }, 1000);
-                <\/script>
-                </body></html>
-            `);
-            printWindow.document.close();
+            document.getElementById('cert-area').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('cert-area').scrollIntoView({behavior:'smooth'});
+            }, 100);
         }
 
         function share(platform) {
@@ -394,53 +410,12 @@
                 window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
             } else if(platform === 'li') {
                 window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
-            } else if(platform === 'snap') {
+            } else if(platform === 'sn') {
                 navigator.clipboard.writeText(text + " " + url);
-                alert("تم نسخ الرابط! يمكنك لصقه في سناب شات.");
+                alert("تم نسخ النتيجة! يمكنك لصقها الآن في سناب شات.");
             }
         }
     </script>
-
-    <div id="cert-hidden" style="display:none;">
-        <div id="cert-content" style="width:1122px; height:793px; padding:20px; background:#fff; color:#000; position:relative; font-family:'Times New Roman', serif;">
-            <div style="border:10px solid #1a1a1a; height:95%; padding:5px;">
-                <div style="border:3px solid #c5a059; height:97%; padding:40px; background:radial-gradient(circle, #fff 40%, #f9f7f1 100%); text-align:center; position:relative;">
-                    <div style="margin-bottom:20px;">
-                        <i class="fas fa-crown" style="font-size:4rem; color:#1a1a1a;"></i>
-                        <div style="font-family:'Cinzel'; font-size:1.5rem; color:#c5a059; font-weight:bold; letter-spacing:3px; margin-top:10px;">STARDOM UNIVERSITY</div>
-                    </div>
-                    <div style="font-family:'Cinzel'; font-size:3.5rem; font-weight:700; margin-bottom:10px;">CERTIFICATE</div>
-                    <div style="font-family:'Pinyon Script'; font-size:2rem; color:#666;">Of Achievement</div>
-                    <div style="margin:30px 0;">
-                        <p style="font-size:1.2rem; color:#555; font-style:italic;">This is to certify that</p>
-                        <h1 id="print-name" style="font-family:'Amiri'; font-size:3rem; color:#b8860b; margin:10px 0; border-bottom:1px solid #ccc; display:inline-block; padding:0 50px;">Student Name</h1>
-                        <p style="font-size:1.2rem; color:#555; font-style:italic; margin-top:10px;">Has successfully passed the advanced examination in</p>
-                        <h2 style="font-family:'Cinzel'; font-size:2rem; color:#1a1a1a; margin-top:15px;">Computer Information Systems</h2>
-                        <p style="font-family:'Amiri'; font-size:1.4rem; color:#444;">مقدمة في نظم المعلومات الحاسوبية</p>
-                    </div>
-                    <div style="margin-top:20px; font-family:'Cinzel'; font-weight:bold; font-size:1.5rem; color:#1a1a1a;">
-                        Grade: <span id="print-grade" style="color:#b8860b;"></span> / 50
-                    </div>
-                    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:50px; padding:0 80px;">
-                        <div style="text-align:center;">
-                            <div id="print-date" style="font-weight:bold; font-family:'Cinzel';"></div>
-                            <div style="border-top:1px solid #000; width:200px; margin-top:5px; font-size:0.8rem;">DATE OF ISSUE</div>
-                        </div>
-                        <div style="text-align:center;">
-                            <div style="width:100px; height:100px; background:#b8860b; border-radius:50%; color:#fff; display:flex; flex-direction:column; justify-content:center; align-items:center; box-shadow:0 0 0 5px #fff, 0 0 0 7px #b8860b;">
-                                <i class="fas fa-check-circle fa-2x"></i>
-                                <div style="font-size:0.6rem; font-weight:bold; margin-top:5px; font-family:'Cinzel';">VERIFIED</div>
-                            </div>
-                        </div>
-                        <div style="text-align:center;">
-                            <div style="font-family:'Pinyon Script'; font-size:2rem;">Dr. Aymen Oglu</div>
-                            <div style="border-top:1px solid #000; width:200px; margin-top:5px; font-size:0.8rem;">INSTRUCTOR</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </body>
 </html>
+
